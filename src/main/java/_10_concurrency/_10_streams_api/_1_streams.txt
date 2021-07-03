@@ -1,0 +1,12 @@
+-> supported starting java 8
+-> introduce functional programming to java
+-> rely heavily on lambda functions
+-> can construct parallel expressions easily with streams
+
+Stream API
+-----------
+
+Source of stream        -> Intermediate operations      -> Terminal Operations
+(Collection of data)        (filtering, sorting)            (collect, reduce)
+                            returns a stream                returns scalar or void
+

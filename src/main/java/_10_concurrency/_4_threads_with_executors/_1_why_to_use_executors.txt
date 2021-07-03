@@ -1,0 +1,25 @@
+Types of executors
+-------------------------
+
+1. SingleThreadExecutor
+------------------------
+-> Has a single thread so we can execute processes sequentially
+-> every process is executed by a new thread
+
+2. FixedThreadPool(n)
+------------------------
+-> This is how we can create thread pool with n threads
+-> n is the number of cores in cpu
+-> if more tasks than threads, then the tasks are stored in a LinkedBlockingQueue
+
+3. CachedThreadPool
+--------------------------
+-> number of threads is not bounded
+-> if all threads are busy and new task comes, then new thread is created
+-> if thread is idle for >60s, then it is removed
+-> used for short parallel tasks
+
+4. ScheduledExecutor
+---------------------
+-> we can execute given operation at regular intervals
+-> we can use it to delay a certain task

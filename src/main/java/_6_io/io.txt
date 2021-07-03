@@ -1,0 +1,16 @@
+Stream _6_io
+
+1. Byte Stream -> Images, Java objects etc.
+
+2. Character Stream -> String handling
+
+
+InputStream
+
+1. ByteArrayInputStream
+2. FileInputStream
+3. PipedInputStream
+4. ObjectInputStream
+5. FilterInputStream
+    1. BufferedInputStream
+    2. DataInputStream

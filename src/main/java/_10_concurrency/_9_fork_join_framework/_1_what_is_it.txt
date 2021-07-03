@@ -1,0 +1,54 @@
+Fork-Join Framework
+---------------------
+
+it helps to make an algorithm parallel
+we don't have to bother about low level synchronizations or locks
+divide and conquer algorithms!!!
+a larger task -> can be divided into smaller tasks + sub solutions can be combined
+Subtasks have to be INDEPENDENT in order to be executed in parallel
+
+eg: parallel merge sort, parallel maximum finding
+
+RecursiveTask<T>    -> return a type T
+                    -> all tasks we want to execute in parallel is a subclass if this class
+                    -> we have to override the computer method that will return the solution of the sub problem
+
+RecursiveAction     -> it is a task, but without return value
+
+ForkJoinPool        -> Thread pool for executing ForkJoinTasks
+                    -> work-stealing    -> a task is not equivalent to a thread
+                                        -> tasks are light weight threads
+                                        -> hence fork-join will be efficient even when there are huge
+                                           number of tasks
+                                        -> if a thread has no task, it can STEAL task from other threads
+                                        -> hence tasks are distributed to all threads in a thread pool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

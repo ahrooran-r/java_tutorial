@@ -1,0 +1,14 @@
+1. Synchronize everywhere a shared mutable variable is used
+2. Guard same mutable variable with same lock
+3. If a method modifies a static field, you must synchronize access to this field even if the method is typically
+    used only by a single thread
+4. Keep synchronized blocks small
+    -> Try to move time consuming activities out of synchronized blocks without affecting thread safety
+5. Avoid excessive synchronization
+    => Costs:
+    1. Thread suspension and redemption
+    2. Lock acquisition and release
+    3. Ensuring consistent memory visibility
+    4. Limits JVM's ability to optimize code execution
+    5. Lost opportunity for parallelism on multi-core systems
+6. Don't synchronize if not sure

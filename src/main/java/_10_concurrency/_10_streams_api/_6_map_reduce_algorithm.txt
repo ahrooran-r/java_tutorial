@@ -1,0 +1,74 @@
+Map - Reduce Algorithm
+---------------------------
+
+-> fundamental building block of big data
+-> a way of computing model that allows to run programs on multiple nodes
+
+algorithm has 3 steps
+------------------------
+
+1. map            -> splits the original dataset
+
+                  -> input is a dataset, for example huge array or iris-datase
+                  -> output: List<Key, Value> pairs
+
+2. shuffle & sort -> all the data is rearranged for the next step to run in parallel
+                  -> makes sure items, with same keys gets same reducer
+
+                  -> combines all key value pairs with same keys + sort them
+                  -> output: List<Key, List<Value>> pairs
+
+3. reduce         -> combines the final results
+
+                  -> List<Key, Value> pairs
+
+
+ILLUSTRATION
+-------------
+
+Dataset                                            Dataset #1
+---------------------------------                  ----------------------
+"windy", "hot", "cold", "windy",                    "windy", "hot", "cold", "windy",
+"hot", "hot", "hot", "windy",                       "hot", "hot", "hot", "windy",
+"cold", "cold", "windy",                            "cold", "cold", "windy",
+"windy", "hot",                                     "windy", "hot"
+"hot", "cold", "windy",
+"cold", "hot", "hot",                              Dataset #2
+"hot", "windy", "windy"                            -----------------------
+                                                    "windy", "hot",
+                                                    "hot", "cold", "windy",
+                                                    "cold", "hot", "hot",
+                                                    "hot", "windy", "windy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

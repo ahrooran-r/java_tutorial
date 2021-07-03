@@ -1,0 +1,25 @@
+Collection
+    1. List
+        1. ArrayList
+        2. LinkedList
+    2. Set
+        SortedSet
+            1. HashSet
+            2. TreeSet
+            3. LinkedHashSet
+    3. Queue
+        Deque
+            1. ArrayDeque
+            2. LinkedList
+
+Map
+    SortedMap
+        1. HashMap
+        2. TreeMap
+        3. LinkedHashMap
+
+Legacy Implementations
+
+1. Vector       -> ArrayList
+2. HashTable    -> HashMap
+3. Stack        -> ArrayDeque

@@ -1,0 +1,73 @@
+Deadlock
+
+deadlock occurs when 2 or more threads wait forever for a lock or resource held by another of the threads
+-> here 2 or more competing actions are each waiting for the other to finish, and thus neither ever does
+
+can happen in databases:
+-> when 2 processes each within its own transaction updates 2 rows of information but in the opposite order
+-> process A updates row 1 and then row 2 at the exact timeframe process B updates row 2 and then row 1
+
+can happen in OS:
+-> a resource requested is being held by another waiting process which in turn waiting
+for another resource held by another waiting process
+
+Livelock
+
+A thread often acts in response to the action of another thread
+if the other thread's action is also a response to action of another thread then livelock may arise
+
+livelocked threads cannot make further progress. However threads are not blocked.
+They are just busy responding to each other to resume work
+
+eg: 2 people attempting to pass each other in narrow corridor:
+-> A moves to left at the same time B moves to right
+-> now again both people cannot pass
+
+How to handle deadlock and livelock?
+
+We should make sure that a thread s=does not block infinitely if it is unable to acquire a lock
+-> by using Lock interface's tryLock() method
+
+We should make sure that each thread acquires locks in same order
+-> because deadlocks arrive when threads try to acquire locks in wrong order
+-> avoid cyclic dependency
+
+Livelocks can be handled by adding some sort of randomness
+-> threads retry acquiring locks at random intervals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

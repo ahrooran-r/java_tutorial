@@ -1,0 +1,19 @@
+Runnable and Callable interfaces
+---------------------------------
+
+Runnable and Callable can both run on different threads than the calling thread
+but Callable can return and value and Runnable cannot
+
+RUNNABLE    -> run-and-forget action
+            -> we execute a run() method without a return action
+
+CALLABLE<T> -> we use callable's call() method if we want to return a value
+            -> Callable interfaces will not return a value
+            -> this is why we need a Future<T> object
+            -> calling thread will be blocked until Future<T> returns the results of call() method
+
+ExecutorService can handle both ways
+    ->  executorService.execute() -> for Runnable -> returns nothing (void)
+    ->  executorService.submit() -> for Runnable and Callable -> returns a Future<T> return value
+                                 -> we can get T with get() method of Future object
+

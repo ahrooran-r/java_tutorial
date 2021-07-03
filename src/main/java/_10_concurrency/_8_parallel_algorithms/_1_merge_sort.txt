@@ -1,0 +1,22 @@
+Merge sort
+-----------
+
+time complexity -> O(N logN)
+space complexity -> Theta(N)
+comparison based algorithm
+not an in-place algorithm
+divide and conquer algorithm
+very stable
+-> best choice for sorting a linked list, in this situation,
+it is easy to implement a merge sort in a way that it requires only Theta(1) extra space
+
+-> JAVA uses MergeSort for sorting reference types, such as Objects
+-> and QuickSort for sorting primitive types such as int, char, long etc.
+
+although heapsort has same time complexity, it's space complexity is Theta(1)
+efficient quick sort algorithms would outperform merge sort
+
+                    QuickSort                   MergeSort
+in-place                Yes                         No <- Need additional space
+stable                  No                          Yes
+time-complexity     Quadratic sometimes         O(N logN)
