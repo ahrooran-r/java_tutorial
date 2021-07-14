@@ -60,5 +60,11 @@ public class _5_Semaphores {
          *
          * you cannot control threads as separate groups, allowing one group to execute while other waits...
          * */
+
+        // Note that in JAVA, there is no direct `Mutex` implementation or class
+        // However Mutex can be imitated with Semaphore of 1 permit.
+        // i.e., new Semaphore (1);
+        // but this is not that useful and hence more advanced versions of `mutex`es such as
+        // synchronized() and `Lock`s are available
     }
 }
