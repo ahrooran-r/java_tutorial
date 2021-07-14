@@ -3,6 +3,12 @@ package _10_concurrency._2_inter_thread_communication;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * <b>SEE THIS TOO!!!</b> {@link java.util.concurrent.locks.ReentrantReadWriteLock} is used where
+ * multiple threads read an object and some other threads write to that object.
+ * Now you don't want reading threads to read partially written data.
+ * So this lock provides two methods for reading lock and writing lock.
+ */
 public class _7_ReentrantLock {
 
     private static final Lock lock = new ReentrantLock(true);
