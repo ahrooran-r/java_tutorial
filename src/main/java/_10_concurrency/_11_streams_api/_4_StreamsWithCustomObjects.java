@@ -1,4 +1,4 @@
-package _10_concurrency._10_streams_api;
+package _10_concurrency._11_streams_api;
 
 import java.util.Arrays;
 import java.util.List;

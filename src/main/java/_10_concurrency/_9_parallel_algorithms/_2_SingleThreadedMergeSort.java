@@ -1,4 +1,4 @@
-package _10_concurrency._8_parallel_algorithms;
+package _10_concurrency._9_parallel_algorithms;
 
 import java.util.Arrays;
 import java.util.Random;
