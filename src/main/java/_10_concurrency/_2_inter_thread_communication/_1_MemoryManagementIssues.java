@@ -1,9 +1,12 @@
 package _10_concurrency._2_inter_thread_communication;
 
+import lombok.SneakyThrows;
+
 public class _1_MemoryManagementIssues {
 
     public static int sum = 0;
 
+    @SneakyThrows
     public static int process() {
 
         Thread t1 = new Thread(() -> {
@@ -21,12 +24,8 @@ public class _1_MemoryManagementIssues {
         t1.start();
         t2.start();
 
-        try {
-            t1.join();
-            t2.join();
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
+        t1.join();
+        t2.join();
 
         return sum;
     }

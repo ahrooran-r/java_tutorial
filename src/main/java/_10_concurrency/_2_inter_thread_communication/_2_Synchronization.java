@@ -1,5 +1,7 @@
 package _10_concurrency._2_inter_thread_communication;
 
+import lombok.SneakyThrows;
+
 public class _2_Synchronization {
 
     public static int sum = 0;
@@ -11,18 +13,19 @@ public class _2_Synchronization {
     }
 
     /*
-    * How `synchronized` keyword works?
-    *
-    *   Every object in java has an intrinsic lock
-    *
-    *   A thread that needs exclusive and consistent access to an object's fields
-    *   has to acquire the `object's intrinsic lock` before accessing them, and then
-    *   release the intrinsic lock when it's done with them
-    *
-    *   Because of the lock, no two threads can execute same synchronized method at same time
-    *
-    * */
+     * How `synchronized` keyword works?
+     *
+     *   Every object in java has an intrinsic lock
+     *
+     *   A thread that needs exclusive and consistent access to an object's fields
+     *   has to acquire the `object's intrinsic lock` before accessing them, and then
+     *   release the intrinsic lock when it's done with them
+     *
+     *   Because of the lock, no two threads can execute same synchronized method at same time
+     *
+     * */
 
+    @SneakyThrows
     public static int process() {
 
         Thread t1 = new Thread(() -> {
@@ -36,12 +39,8 @@ public class _2_Synchronization {
         t1.start();
         t2.start();
 
-        try {
-            t1.join();
-            t2.join();
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
+        t1.join();
+        t2.join();
 
         return sum;
     }

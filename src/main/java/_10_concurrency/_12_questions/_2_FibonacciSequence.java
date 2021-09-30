@@ -44,7 +44,7 @@ public class _2_FibonacciSequence {
 
         // run first task in new thread
         final long[] out = new long[2];
-        long x;
+
         Thread child = new Thread(() -> out[0] = fibParallel(n - 1, numOfThreads / 2));
         child.start();
 
