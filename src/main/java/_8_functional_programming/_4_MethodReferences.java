@@ -24,9 +24,9 @@ class SuperClass {
     }
 }
 
-public class _3_MethodReferences extends SuperClass {
+public class _4_MethodReferences extends SuperClass {
 
-    public _3_MethodReferences(String s) {
+    public _4_MethodReferences(String s) {
         System.out.print(s);
     }
 
@@ -55,12 +55,12 @@ public class _3_MethodReferences extends SuperClass {
         System.out.println();
 
         // printing stream of strings with static method -> 2
-        chars.forEach(_3_MethodReferences::someStaticFunction);
+        chars.forEach(_4_MethodReferences::someStaticFunction);
         System.out.println();
 
         // printing stream of strings with super method -> 3
         // since print() is defined in the super class => method is called from super class
-        chars.forEach(new _3_MethodReferences("hello")::someSuperFunction);
+        chars.forEach(new _4_MethodReferences("hello")::someSuperFunction);
         System.out.println();
 
         // printing stream of strings with arbitrary object -> 4
@@ -75,7 +75,7 @@ public class _3_MethodReferences extends SuperClass {
         System.out.println();
 
         // printing stream of strings with class constructor method -> 5
-        chars.forEach(_3_MethodReferences::new);
+        chars.forEach(_4_MethodReferences::new);
         System.out.println();
 
     }

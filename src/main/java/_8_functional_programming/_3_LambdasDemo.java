@@ -15,7 +15,7 @@ interface FuncInterface {
     }
 }
 
-public class _2_LambdasDemo {
+public class _3_LambdasDemo {
     public static void main(String[] args) {
 
         // lambda expression to implement above functional interface.

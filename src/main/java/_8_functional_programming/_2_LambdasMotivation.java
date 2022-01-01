@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class _1_LambdasMotivation {
+public class _2_LambdasMotivation {
     public static void main(String[] args) {
 
         // suppose a normal object generation is as follows
