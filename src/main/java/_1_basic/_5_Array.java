@@ -19,7 +19,7 @@ public class _5_Array {
         // COPYING ARRAYS
 
         byte[] numbers2_clone = numbers2.clone();
-        // since `numbers2` is 1-D, each elements are copied
+        // since `numbers2` is 1-D, each element is copied
         System.out.println(numbers2 == numbers2_clone); // -> false
 
         byte[][] matrix_clone = matrix.clone();

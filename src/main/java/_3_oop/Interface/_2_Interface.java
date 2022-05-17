@@ -11,8 +11,7 @@ class B {
 }
 
 // since B already has an implementation of `foo`,
-// X does not need to write concrete method
-// unless X wants to override that method
+// X does not need to write concrete method unless X wants to override that method
 class X extends B implements A {
 
 }

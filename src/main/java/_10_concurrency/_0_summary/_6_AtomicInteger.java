@@ -27,7 +27,7 @@ class MeetUpEvent {
     public void notAttending(int guestCount) {
         if (guestCount == 1)
 
-            // incrementAndGet() -> Atomically increments the current value,
+            // decrementAndGet() -> Atomically decrements the current value,
             this.count.decrementAndGet();
 
         else if (guestCount > 1) {
@@ -44,6 +44,9 @@ class MeetUpEvent {
                 // False return indicates that the actual value was not equal to the expected value.
                 updated = count.compareAndSet(currentCount, newCount);
             }
+
+            // https://stackoverflow.com/a/37716606/10582056
+            // Method local variables are thread safe: https://stackoverflow.com/a/12825906/10582056
         }
     }
 

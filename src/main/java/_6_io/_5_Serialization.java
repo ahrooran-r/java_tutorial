@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class _5_Serialization {
 
-    // transient -> keyword used to mark variable as not to be serialized
+    // `transient` -> keyword used to mark variable as not to be serialized
     transient String doNotSerialize = "keyword \"transient\" used to mark variable as not to be serialized";
 
     public static void main(String[] args) {

@@ -98,7 +98,7 @@ class Downloader {
      * consider in a family of father, mother and 3 children and food is there for all
      * suppose father takes food at last (four people are waiting for the food
      * father thread and 3 children thread -> altogether 4 threads are running at the same time)
-     * so a latch is created with count 3 and each child should countdown the latch once taken the food
+     * so a latch is created with count 3 and each child should count down the latch once taken the food
      * father will be blocked and watch the latch until countdown hits 0
      * then he will take his part
      *

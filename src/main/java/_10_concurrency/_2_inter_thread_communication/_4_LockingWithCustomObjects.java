@@ -8,6 +8,7 @@ public class _4_LockingWithCustomObjects {
 
     private static final int time = 1_000_000;
 
+    // Dummy objects as locks
     private static final Object lock1 = new Object();
     private static final Object lock2 = new Object();
 

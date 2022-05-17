@@ -40,7 +40,10 @@ public class _1_FileReading {
 
     // Method - 2 (use try with resources and object chaining) -> Most preferable method for reading files
     public static void printFile_m2(String fileName, StringBuilder sb) {
-        try (BufferedReader file_buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8))) {
+        try (BufferedReader file_buffer =
+                     new BufferedReader(
+                             new InputStreamReader(
+                             new FileInputStream(fileName), StandardCharsets.UTF_8))) {
             String line;
             while ((line = file_buffer.readLine()) != null) {
                 sb.append(line).append("\n");
@@ -51,7 +54,7 @@ public class _1_FileReading {
         }
     }
 
-    // Method -3 (Using raw file reader) -> not recommended => no control over encoding hence this is platform dependant
+    // Method -3 (Using raw file reader) -> not recommended => `no control over encoding` hence this is platform dependant
     public static void printFile_m3(String fileName, StringBuilder sb) {
         try (FileReader file = new FileReader(fileName)) {
             int i;

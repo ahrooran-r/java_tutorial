@@ -6,7 +6,7 @@ class Process {
             System.out.println("Producer is executing!");
             // see doc
             wait();
-            // now this thread switched to a  waiting stage.
+            // now this thread switched to a `waiting stage`.
             // its intrinsic lock is released.
             // Since consume() thread is waiting for the lock, that thread acquires the lock and work on it
             System.out.println("Producer is executing again!");

@@ -2,6 +2,8 @@ package _3_oop.Interface;
 
 class CloneableClass implements Cloneable {
 
+    // Overriding Object.clone()
+    @Override
     public CloneableClass clone() {
         try {
             return (CloneableClass) super.clone();

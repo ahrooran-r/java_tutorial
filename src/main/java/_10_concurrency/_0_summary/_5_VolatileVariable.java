@@ -12,6 +12,8 @@ package _10_concurrency._0_summary;
 // => when one thread writes and other threads read from the variable
 //     -> No race condition -> hence volatile can be used
 
+// https://stackoverflow.com/a/54592753/10582056
+
 import java.util.concurrent.TimeUnit;
 
 public class _5_VolatileVariable {

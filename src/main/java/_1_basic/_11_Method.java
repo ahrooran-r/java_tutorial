@@ -31,4 +31,8 @@ public class _11_Method {
         for (int number : numbers) total += number;
         return total;
     }
+
+    // NOTE: can not have multiple vararg inputs
+    // public static long addNum(int... ints, long... longs) {}
+    // Above will throw exception
 }

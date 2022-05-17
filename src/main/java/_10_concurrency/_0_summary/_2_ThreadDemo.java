@@ -2,6 +2,7 @@ package _10_concurrency._0_summary;
 
 // second way of implementing concurrency
 // extend Thread class
+// This is not advisable
 class NewTask extends Thread {
     @Override
     public void run() {
@@ -27,6 +28,5 @@ public class _2_ThreadDemo {
         task.start();
 
         System.out.println("Inside main");
-
     }
 }

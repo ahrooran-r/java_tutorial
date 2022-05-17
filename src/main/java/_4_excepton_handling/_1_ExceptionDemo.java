@@ -20,7 +20,7 @@ class HTTPConnect {
         System.out.println("Inside send");
 
         // configuring preconditions for `destination`
-        // better to use assertions rather than exceptions
+        // https://softwareengineering.stackexchange.com/a/15518
         if (destination < 0 || destination > 1) {
             throw new IllegalArgumentException();
         }
@@ -87,4 +87,7 @@ Throwable
 
     2. LinkageError
         1. NoClassDefFoundError
+
+Exception vs Error: https://stackoverflow.com/a/5813695/10582056
+
 */

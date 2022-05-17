@@ -1,9 +1,9 @@
 package _3_oop;
 
-// cannot instantiate class
+// cannot instantiate abstract classes
 abstract class Fruit {
 
-    // must be overridden by sub classes
+    // abstract method must be overridden by subclasses
     abstract void isEatable(String fruit);
 }
 

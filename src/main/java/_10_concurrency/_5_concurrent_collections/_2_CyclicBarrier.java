@@ -14,24 +14,40 @@ import java.util.concurrent.Executors;
  * A {@link CyclicBarrier} is used when you want to create a group of tasks to perform
  * some tasks in parallel + wait until they are all finished before
  * moving onto the next step
+ * <p>
  * -> something like join
+ * <p>
  * -> something like CountDownLatch
  * <p>
  * CountDownLatch -> one shot event
+ * <p>
  * CyclicBarrier -> can be used again and again
+ * <p>
  * -> plus this has a barrier action: which is a runnable
+ * <p>
  * -> can be used to trigger a method once countdown reaches zero
+ * <p>
  * -> we cannot reset latches, but we can reset cyclic barriers with reset()
+ * <p>
  * -> new CyclicBarrier(N) => N threads will wait for each other
  * <p>
  * e.g.:
  * consider a family where all 4 of us eating
  * now father and mother eat fast and could finish the plate before children
+ * <p>
  * but children are slow
- * so father and mother wait in their seat patiently for children to finish
+ * so father and mother wait in their seat patiently for children to finish,
  * so they all can wash their plates together
+ * <p>
  * here task A -> eating and task B -> washing plate
  * although parents finish task A quick, they wait for children to join in with task B
+ * <p>
+ * <b>
+ * CyclicBarrier allows a number of threads to wait on each other,
+ * whereas CountDownLatch allows one or more threads to wait for a number of tasks to complete.
+ * <p>
+ * In short, CyclicBarrier maintains a count of threads whereas CountDownLatch maintains a count of tasks.
+ * </b>
  */
 public class _2_CyclicBarrier {
     public static void main(String[] args) {

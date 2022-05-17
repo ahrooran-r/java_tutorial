@@ -41,5 +41,4 @@ public class _3_DeadlockExample {
         lock1.unlock();
         lock2.unlock();
     }
-
 }

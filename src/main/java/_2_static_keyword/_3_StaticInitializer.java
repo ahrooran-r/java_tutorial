@@ -4,12 +4,13 @@ package _2_static_keyword;
 what is static initializer?
 
 The static initializer is a static {} block of code inside java class, and
-run only one time before the constructor or main method is called.
+run only one time BEFORE the constructor or main method is called.
+So order would be: Static block -> Main method -> Constructor
 
 is a block of code static { ... } inside any java class, and executed by virtual machine when class is called.
-No return statements are supported.
-No arguments are supported.
-No this or super are supported.
+No `return statements` are supported.
+No `arguments` are supported.
+No `this` or `super` are supported.
 
 Where can I use it?
 

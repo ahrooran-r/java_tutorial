@@ -35,7 +35,7 @@ class SimpleRecursiveAction extends RecursiveAction {
     protected void compute() {
 
         // we have to decide whether the workload is too big to execute
-        // -> i.e., whether to divide it into further sub tasks
+        // -> i.e., whether to divide it into further sub-tasks
         // or to execute the workload within this task!
         if (this.simulatedWork > 100) {
             System.out.printf("The task weight: %d is split into two for parallel execution\n", simulatedWork);

@@ -41,11 +41,12 @@ public class _1_VolatileKeywordAndTerminatingThreads {
         configurator.start();
 
         try {
+            // main thread joins executor
             executor.join();
+            // main thread joins configurator
             configurator.join();
         } catch (InterruptedException exception) {
             exception.printStackTrace();
         }
-
     }
 }

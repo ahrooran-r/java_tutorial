@@ -15,14 +15,12 @@ public class _7_Arithmetic {
 
         byte x = 1;
         byte y = x++;
-        // y is assigned to x; then x is incremented
+        // x is assigned to y; then x is incremented
         // y=1, x=2
 
         x = 1;
         y = ++x;
         // x is incremented; then assigned to y
         // x=2, y=2
-
-
     }
 }

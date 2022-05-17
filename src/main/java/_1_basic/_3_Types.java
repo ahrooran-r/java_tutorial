@@ -14,8 +14,9 @@ public class _3_Types {
         point1.x = 3;
         System.out.println(point2);
 
-        // reference types are copied by the references
-        // primitive types are copied by value
+        // reference types are copied by the `references`
+        // If we change original reference, the other references that points to the original reference will also change
+        // primitive types are copied by `value`
 
     }
 }

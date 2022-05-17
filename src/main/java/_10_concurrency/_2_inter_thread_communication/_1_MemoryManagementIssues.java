@@ -24,7 +24,10 @@ public class _1_MemoryManagementIssues {
         t1.start();
         t2.start();
 
+        // Main thread will wait until t1 finishes
         t1.join();
+
+        // Main thread will wait until t2 finishes
         t2.join();
 
         return sum;

@@ -19,10 +19,10 @@ public class _7_ReentrantLock {
         //lock.lock();
         //for (int i = 0; i < 10000; i++) counter++;
         //lock.unlock();
-        // BUT what of the inner code throws exception,
-        // then unlock method may not execute and it will be a deadlock situation for other thread
+        // BUT what of the inner code throws EXCEPTION,
+        // then unlock method may not execute, and it will be a DEADLOCK situation for other thread
 
-        // therefore always use this lock with try catch block
+        // therefore always use this lock with `try catch block`
         lock.lock();
         try {
             for (int i = 0; i < 10000; i++) counter++;

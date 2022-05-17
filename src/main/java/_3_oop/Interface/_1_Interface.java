@@ -10,10 +10,10 @@ interface Sharable {
     void getItemData();
 }
 
-//interface can extend an interface
+// interface can extend an interface
 interface Comparable extends Sharable {
 
-    // can have static methods with body
+    // can have `static` methods with body
     static void isEqual(Object o) {
         System.out.println(o instanceof Bookmark);
     }

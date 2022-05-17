@@ -3,7 +3,7 @@ Types of executors
 
 1. SingleThreadExecutor
 ------------------------
--> Has a single thread so we can execute processes sequentially
+-> Has a single thread, so we can execute processes sequentially
 -> every process is executed by a new thread
 
 2. FixedThreadPool(n)

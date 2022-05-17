@@ -13,6 +13,8 @@ public class _3_SynchronizationProblems {
      *
      * */
 
+    // https://stackoverflow.com/questions/3519664/difference-between-volatile-and-synchronized-in-java
+
     public static int sum1 = 0;
     public static int sum2 = 0;
 

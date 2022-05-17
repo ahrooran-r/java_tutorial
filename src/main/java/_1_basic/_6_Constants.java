@@ -17,7 +17,9 @@ public class _6_Constants {
 }
 
 // declare constant classes -> these classes cannot be extended
+
 // also methods of this class can not be overridden
+// <- if `final` is used on a class, it is also applied to the respective methods
 final class Test{
 
 }

@@ -2,7 +2,7 @@ package _2_static_keyword;
 
 class Numbers {
 
-    // to have a static class make all the methods static
+    // to have a `static class` make ALL the methods static
     // also make constructor private so no objects can be created from class
 
     private Numbers() {

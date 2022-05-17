@@ -10,10 +10,10 @@ public enum EnumBookGenre {
         }
     };
 
-    public int minAgeToRead;
+    private int minAgeToRead;
 
     // if enums have state, then constructor is necessary
-    // constructors are private by default
+    // constructors are `private` by default
     EnumBookGenre(int minAgeToRead) {
         this.minAgeToRead = minAgeToRead;
     }
