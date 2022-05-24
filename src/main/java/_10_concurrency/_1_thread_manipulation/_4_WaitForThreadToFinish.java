@@ -55,6 +55,9 @@ public class _4_WaitForThreadToFinish {
             // Now current 'main' thread is going to wait until w1 finishes
             // Then it is going to run after w1 finishes
             // in nutshell 'main' thread is going to JOIN w1
+
+            // I'm telling the thread that executes this code (which is the MAIN thread)
+            // To join W1 -> To wait till W1 completes and then execute
         } catch (InterruptedException exception) {
             exception.printStackTrace();
         }

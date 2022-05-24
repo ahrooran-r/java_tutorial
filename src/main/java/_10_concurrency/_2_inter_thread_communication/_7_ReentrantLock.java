@@ -29,6 +29,7 @@ public class _7_ReentrantLock {
         } finally {
             lock.unlock();
             // this makes sure we're going to unlock no matter the exception
+            // ALWAYS use locks with try...catch
         }
 
         // THE ADVANTAGE of this is that we can lock on one part of code

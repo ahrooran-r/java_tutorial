@@ -8,6 +8,9 @@ class Processor {
     private static final int UPPER_LIMIT = 5;
     private static final int LOWER_LIMIT = 0;
 
+    // Instead of using `this` (as shown in _5_WaitAndNotify.java), I'm using a simple Object
+    // Both approaches are same
+    // When using this approach -> make sure to synchronize with the Object and not `this` <- This is a mistake people make
     private static final Object lock = new Object();
 
     private final List<Integer> list = new ArrayList<>(UPPER_LIMIT);

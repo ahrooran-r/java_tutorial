@@ -37,10 +37,5 @@ public class _3_MultithreadingWithThreadClass {
         runner1.start();
         runner2.start();
 
-        // NOTE: this is not parallel execution, just time slicing
-
-        // Parallel vs Time-slicing
-        // In parallel programming, two different cores execute two threads at the same exact time
-        // With time slicing, only one core is employed. When one thread is executing, other one has to wait
     }
 }
