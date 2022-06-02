@@ -6,7 +6,14 @@
 
     <groupId>tutorial</groupId>
     <artifactId>java_basics</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0-Final</version>
+
+    <modules>
+        <module>core</module>
+        <module>guava</module>
+        <module>junit</module>
+    </modules>
 
     <name>java</name>
 
@@ -27,22 +34,6 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-api</artifactId>-->
-<!--            <version>5.8.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-engine</artifactId>-->
-<!--            <version>5.8.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -50,60 +41,21 @@
             <version>1.2.11</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
-        </dependency>
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.lmax/disruptor &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.lmax</groupId>-->
-<!--            <artifactId>disruptor</artifactId>-->
-<!--            <version>4.0.0.RC1</version>-->
-<!--        </dependency>-->
-
-
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-lang3</artifactId>-->
-<!--            <version>3.12.0</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-math3 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-math3</artifactId>-->
-<!--            <version>3.6.1</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-io/commons-io &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>commons-io</groupId>-->
-<!--            <artifactId>commons-io</artifactId>-->
-<!--            <version>2.11.0</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-collections4</artifactId>-->
-<!--            <version>4.4</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-text &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-text</artifactId>-->
-<!--            <version>1.9</version>-->
-<!--        </dependency>-->
-
     </dependencies>
 
     <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.gaul</groupId>
+                <artifactId>modernizer-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <configuration>
+                    <javaVersion>${jdk.version}</javaVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
