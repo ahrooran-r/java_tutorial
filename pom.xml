@@ -5,17 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tutorial</groupId>
-    <artifactId>java_basics</artifactId>
+    <artifactId>learn</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-Final</version>
+    <name>java</name>
 
     <modules>
         <module>core</module>
         <module>guava</module>
         <module>junit</module>
     </modules>
-
-    <name>java</name>
 
     <properties>
         <jdk.version>17</jdk.version>
