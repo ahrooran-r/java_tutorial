@@ -1,4 +1,4 @@
-package _11_guava._2_collections;
+package _11_guava._2_collections._1_maps;
 
 import com.google.common.collect.*;
 
@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * <a href="https://www.baeldung.com/guava-maps">tutorial</a>
  */
-public class _3_ImmutableMapClass {
+public class _1_ImmutableMapClass {
     public static void main(String[] args) {
 
         // building an immutable map
