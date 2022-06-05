@@ -1,4 +1,4 @@
-package tutorial.learn.guava._2_collections;
+package tutorial.learn.guava._2_collections._2_sets;
 
 import com.google.common.collect.Sets;
 
@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * <a href="https://www.baeldung.com/guava-sets">tutorial</a>
  */
-public class _2_SetsClass {
+public class _1_SetsClass {
     public static void main(String[] args) {
 
         Set<String> set1 = Sets.newHashSet("John", "Jane", "Adam");

@@ -1,4 +1,4 @@
-package tutorial.learn.guava._2_collections._1_maps;
+package tutorial.learn.guava._2_collections._2_sets;
 
 import com.google.common.collect.ConcurrentHashMultiset;
 import com.google.common.collect.HashMultiset;
@@ -20,7 +20,7 @@ import com.google.common.collect.Multiset;
  * 3. The intention of the code is clearer. A Multiset<E> obviously maps the elements to their counts.
  * A Map<E, Integer> could map the elements to arbitrary integers.
  */
-public class _3_MultiSetClass {
+public class _2_MultiSetClass {
     public static void main(String[] args) {
 
         Multiset<String> bookStore = HashMultiset.create();

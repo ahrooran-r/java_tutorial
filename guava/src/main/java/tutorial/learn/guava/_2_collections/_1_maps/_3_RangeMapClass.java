@@ -13,7 +13,7 @@ import java.util.Map;
  * <p>
  * For example we suppose we take road lanes: bikes can travel in lanes from 0-3 and cars from 4-6 and lorries from 7-9
  */
-public class _4_RangeMapClass {
+public class _3_RangeMapClass {
     public static void main(String[] args) {
 
         RangeMap<Integer, String> vehiclePlace = ImmutableRangeMap.<Integer, String>builder()
