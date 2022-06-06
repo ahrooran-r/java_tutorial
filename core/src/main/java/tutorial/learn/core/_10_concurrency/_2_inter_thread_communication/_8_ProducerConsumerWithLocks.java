@@ -29,7 +29,7 @@ class Worker {
         lock.lock();
         System.out.println("Producer method...");
         condition.await();
-        // this is same as initial `lock.wait()` method but with another name
+        // this is same as initial `lock.wait()` or `this.wait()` or `obj.wait()` method but with another name
         // now the lock associated with this condition is AUTOMATICALLY released!
         // and thread is put into a wait stage
 
