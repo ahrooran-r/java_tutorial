@@ -12,7 +12,7 @@ import java.util.Queue;
 /**
  * <a href="https://www.baeldung.com/guava-minmax-priority-queue-and-evicting-queue">tutorial</a>
  */
-public class _3_QueueClass {
+public class _2_EvictingQueue_MinMaxPriorityQueue_Class {
     public static void main(String[] args) {
 
         // When we want to add a new item to the EvictingQueue, and the queue is full,
