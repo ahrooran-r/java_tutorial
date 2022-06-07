@@ -13,7 +13,7 @@
     <modules>
         <module>core</module>
         <module>guava</module>
-        <module>junit</module>
+        <module>tests</module>
     </modules>
 
     <properties>
