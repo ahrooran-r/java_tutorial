@@ -1,14 +1,14 @@
 package tutorial.learn.junit;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.Test;
-import tutorial.learn.mockito_business_logic.TodoImpl;
-import tutorial.learn.mockito_business_logic.TodoInterface;
+import org.junit.jupiter.api.Test;
+import tutorial.learn.junit.mockito_business_logic.TodoImpl;
+import tutorial.learn.junit.mockito_business_logic.TodoInterface;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,25 +32,30 @@ public class WhenThenGivenWillReturnMatchers {
 
         List<String> list = logic.retrieveTodosRelatedToSpring("DUMMY_USR");
 
-        assertArrayEquals("Arrays are not equal", list.toArray(), list.toArray());
+        assertArrayEquals(list.toArray(), list.toArray(), "Arrays are not equal");
     }
 
     // Handling exceptions...
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testMock2() {
+
+        final String MESSAGE = "MOCK THROW!!!";
 
         System.out.println("Executing Mock Test 2");
 
         TodoInterface todoInterfaceMock = mock(TodoInterface.class);
 
-        when(todoInterfaceMock.retrieveTodos(anyString())).thenThrow(new RuntimeException("MOCK THROW!!!"));
+        when(todoInterfaceMock.retrieveTodos(anyString())).thenThrow(new RuntimeException(MESSAGE));
 
         // both above and below are same
         // below is more related to BDD style
-        given(todoInterfaceMock.retrieveTodos(anyString())).willThrow(new RuntimeException("MOCK THROW!!!"));
+        given(todoInterfaceMock.retrieveTodos(anyString())).willThrow(new RuntimeException(MESSAGE));
 
-        TodoImpl logic = new TodoImpl(todoInterfaceMock);
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            TodoImpl logic = new TodoImpl(todoInterfaceMock);
+            logic.retrieveTodosRelatedToSpring("DUMMY_USR");
+        });
 
-        logic.retrieveTodosRelatedToSpring("DUMMY_USR");
+        assertEquals(MESSAGE, exception.getMessage());
     }
 }

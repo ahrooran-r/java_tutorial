@@ -20,26 +20,6 @@ public class ParameterizedTutorialTest {
         primeNumberChecker = new ParameterizedLogic();
     }
 
-    // Each parameter should be placed as an argument here
-    // Every time runner triggers, it will pass the arguments
-    // from parameters we defined in primeNumbers() method
-
-    // public ParameterizedTest(Integer inputNumber, Boolean expectedResult) {
-    //     this.inputNumber = inputNumber;
-    //     this.expectedResult = expectedResult;
-    // }
-
-    // @Parameterized.Parameters
-    // public static Collection<Object[]> input() {
-    //     return Arrays.asList(new Object[][]{
-    //             {2, true},
-    //             {6, false},
-    //             {19, true},
-    //             {22, false},
-    //             {23, true}
-    //     });
-    // }
-
     @BeforeAll
     public static void before() {
         System.out.println("Executing Parameterized Test");

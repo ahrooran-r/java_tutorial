@@ -1,11 +1,11 @@
 package tutorial.learn.junit;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import org.junit.Test;
-import tutorial.learn.mockito_business_logic.TodoImpl;
-import tutorial.learn.mockito_business_logic.TodoInterface;
-import tutorial.learn.mockito_business_logic.TodoInterfaceStub;
+import org.junit.jupiter.api.Test;
+import tutorial.learn.junit.mockito_business_logic.TodoImpl;
+import tutorial.learn.junit.mockito_business_logic.TodoInterface;
+import tutorial.learn.junit.mockito_business_logic.TodoInterfaceStub;
 
 import java.util.List;
 
@@ -21,6 +21,6 @@ public class StubTest {
 
         List<String> list = logic.retrieveTodosRelatedToSpring("someUser");
 
-        assertArrayEquals("Arrays are not equal", list.toArray(), list.toArray());
+        assertArrayEquals(list.toArray(), list.toArray(), "Arrays are not equal");
     }
 }
