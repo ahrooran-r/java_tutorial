@@ -26,9 +26,9 @@ public class MainClass {
                         // can select individual class
                         // DiscoverySelectors.selectClass(AnnotationTest.class)
                 )
-                .filters(
-                        ClassNameFilter.includeClassNamePatterns(".*Tests")
-                )
+                // .filters(
+                //         ClassNameFilter.includeClassNamePatterns(".*Tests")
+                // )
                 .build();
 
         final Launcher launcher = LauncherFactory.create();
@@ -39,7 +39,9 @@ public class MainClass {
 
         List<TestExecutionSummary.Failure> failures = listener.getSummary().getFailures();
 
-        failures.forEach(TestExecutionSummary.Failure::getException);
+        failures.forEach(failure -> {
+            System.out.println(failure.getException().getLocalizedMessage());
+        });
 
         long successCount = listener.getSummary().getTestsSucceededCount();
         System.out.println("Succeeded tests: " + successCount);
