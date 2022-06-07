@@ -14,13 +14,25 @@
     <name>junit</name>
     <packaging>jar</packaging>
 
+    <properties>
+        <junit.api>5.8.2</junit.api>
+    </properties>
+
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.9.0-M1</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.8.2</version>
+            <version>${junit.api}</version>
             <scope>test</scope>
         </dependency>
 
@@ -28,9 +40,26 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version>
+            <version>${junit.api}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- to use parametrized tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.api}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--        &lt;!&ndash; Supports existing JUnit3 and JUnit 4 testcases &ndash;&gt;-->
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.vintage</groupId>-->
+        <!--            <artifactId>junit-vintage-engine</artifactId>-->
+        <!--            <version>5.8.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
         <dependency>
@@ -41,5 +70,29 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!-- version must be >= this: 2.22.0-->
+                <configuration>
+                    <argLine>--illegal-access=permit</argLine>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <!-- version must be >= this: 2.22.0-->
+                <configuration>
+                    <argLine>--illegal-access=permit</argLine>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

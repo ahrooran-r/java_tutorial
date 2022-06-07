@@ -1,18 +1,19 @@
 package tutorial.learn.junit;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Stack;
 
-@RunWith(MockitoJUnitRunner.class)
+// https://stackoverflow.com/a/55281655/10582056
+@ExtendWith(MockitoExtension.class)
 public class CaptorTest {
 
     @Mock

@@ -1,7 +1,7 @@
 package tutorial.learn.junit.mockito_business_logic;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 // TodoBusinessImpl -> called System Under Test (SUT)
 public class TodoImpl {
@@ -17,13 +17,12 @@ public class TodoImpl {
 
     public List<String> retrieveTodosRelatedToSpring(String user) {
 
-        List<String> filteredTodos = new ArrayList<>();
         List<String> allTodos = todoInterface.retrieveTodos(user);
-        for (String todo : allTodos) {
-            if (todo.contains("Spring")) {
-                filteredTodos.add(todo);
-            }
-        }
+
+        List<String> filteredTodos = allTodos
+                .stream()
+                .filter(todo -> todo.contains("Spring"))
+                .collect(Collectors.toList());
 
         return filteredTodos;
     }

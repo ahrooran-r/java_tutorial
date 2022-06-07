@@ -1,23 +1,47 @@
 package tutorial.learn.junit;
 
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
+
+import org.junit.platform.engine.discovery.ClassNameFilter;
+import org.junit.platform.engine.discovery.DiscoverySelectors;
+import org.junit.platform.launcher.Launcher;
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
+import org.junit.platform.launcher.core.LauncherFactory;
+import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
+import org.junit.platform.launcher.listeners.TestExecutionSummary;
+
+import java.util.List;
 
 public class MainClass {
     public static void main(String[] args) {
 
-        Result result = JUnitCore.runClasses(
-                AnnotationTest.class,
-                AssertTest.class,
-                ParameterizedTest.class,
-                StubTest.class,
-                WhenThenGivenWillReturnMatchers.class
-        );
+        // Launcher API - https://junit.org/junit5/docs/current/user-guide/#launcher-
+        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder
+                .request()
+                .selectors(
 
-        for (Failure failure : result.getFailures()) {
-            System.out.println(failure.toString());
-        }
-        System.out.println("Result == " + result.wasSuccessful());
+                        // can select entire package
+                        DiscoverySelectors.selectPackage("tutorial.learn.junit")
+
+                        // can select individual class
+                        // DiscoverySelectors.selectClass(AnnotationTest.class)
+                )
+                .filters(
+                        ClassNameFilter.includeClassNamePatterns(".*Tests")
+                )
+                .build();
+
+        final Launcher launcher = LauncherFactory.create();
+        final SummaryGeneratingListener listener = new SummaryGeneratingListener();
+
+        launcher.registerTestExecutionListeners(listener);
+        launcher.execute(request);
+
+        List<TestExecutionSummary.Failure> failures = listener.getSummary().getFailures();
+
+        failures.forEach(TestExecutionSummary.Failure::getException);
+
+        long successCount = listener.getSummary().getTestsSucceededCount();
+        System.out.println("Succeeded tests: " + successCount);
     }
 }

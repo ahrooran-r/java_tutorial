@@ -1,16 +1,16 @@
 package tutorial.learn.junit;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.mockito.Matchers.anyString;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-import tutorial.learn.mockito_business_logic.TodoImpl;
-import tutorial.learn.mockito_business_logic.TodoInterface;
+import org.mockito.junit.jupiter.MockitoExtension;
+import tutorial.learn.junit.mockito_business_logic.TodoImpl;
+import tutorial.learn.junit.mockito_business_logic.TodoInterface;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
 * should run with this class if we want to use @Mockito
 * or we can do like this:
 *
-    @Before
+    @BeforeAll
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
@@ -35,7 +35,7 @@ import java.util.List;
     }
 *
 * */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MockAnnotationTest {
 
     // equivalent to -> TodoInterface todoInterface = mock(TodoInterface.class);
@@ -62,17 +62,25 @@ public class MockAnnotationTest {
 
         List<String> list = impl.retrieveTodosRelatedToSpring("DUMMY_USR");
 
-        assertArrayEquals("Arrays are not equal", list.toArray(), list.toArray());
+        assertArrayEquals(list.toArray(), list.toArray(), "Arrays are not equal");
     }
 
     // Handling exceptions...
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testMock2() {
+
+        final String MESSAGE = "MOCK THROW!!!";
 
         System.out.println("Executing Mock Test 2");
 
-        when(todoInterface.retrieveTodos(anyString())).thenThrow(new RuntimeException("MOCK THROW!!!"));
+        when(todoInterface.retrieveTodos(anyString())).thenThrow(new RuntimeException(MESSAGE));
 
-        impl.retrieveTodosRelatedToSpring("DUMMY_USR");
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            // code under test
+            impl.retrieveTodosRelatedToSpring("DUMMY_USR");
+        });
+
+        assertEquals(MESSAGE, exception.getMessage());
     }
 }
