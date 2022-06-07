@@ -14,6 +14,7 @@
         <module>core</module>
         <module>guava</module>
         <module>tests</module>
+        <module>checkerframework</module>
     </modules>
 
     <properties>
@@ -54,19 +55,20 @@
             public static void method() { ... }
         }
         -->
-        <dependency>
-            <groupId>org.gaul</groupId>
-            <artifactId>modernizer-maven-annotations</artifactId>
-            <version>2.4.0</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.gaul</groupId>-->
+        <!--            <artifactId>modernizer-maven-annotations</artifactId>-->
+        <!--            <version>2.4.0</version>-->
+        <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/com.google.errorprone/error_prone_core -->
-        <dependency>
-            <groupId>com.google.errorprone</groupId>
-            <artifactId>error_prone_core</artifactId>
-            <version>${error-prone.version}</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--        &lt;!&ndash; requires jdk 11 or newer &ndash;&gt;-->
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.google.errorprone/error_prone_core &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.google.errorprone</groupId>-->
+        <!--            <artifactId>error_prone_core</artifactId>-->
+        <!--            <version>${error-prone.version}</version>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
 
     </dependencies>
 

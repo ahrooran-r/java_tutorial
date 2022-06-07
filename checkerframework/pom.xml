@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>learn</artifactId>
+        <groupId>tutorial</groupId>
+        <version>1.0.0-Final</version>
+    </parent>
+
+    <artifactId>checkerframework</artifactId>
+    <name>checkerframework</name>
+    <packaging>jar</packaging>
+
+    <properties>
+        <checkerframework.version>3.22.1</checkerframework.version>
+    </properties>
+
+    <!-- Maven Tutorial -->
+    <!-- https://github.com/typetools/checker-framework/blob/master/docs/examples/MavenExample/pom.xml -->
+    <!-- https://gist.github.com/sarxos/9ef9aad8b52e282cfc89fe5da2fb7efc -->
+    <!-- https://www.baeldung.com/checker-framework -->
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.checkerframework/checker -->
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker</artifactId>
+            <version>${checkerframework.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.checkerframework/checker-qual -->
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${checkerframework.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.checkerframework/jdk8 &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.checkerframework</groupId>-->
+        <!--            <artifactId>jdk8</artifactId>-->
+        <!--            <version>3.3.0</version>-->
+        <!--        </dependency>-->
+
+    </dependencies>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+
+<!--                <configuration>-->
+
+<!--                    &lt;!&ndash; Must fork or else JVM arguments are ignored. &ndash;&gt;-->
+<!--                    <fork>true</fork>-->
+<!--                    <release>17</release>-->
+
+<!--                    <compilerArgs combine.children="append">-->
+<!--                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>-->
+<!--                    </compilerArgs>-->
+
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+</project>
