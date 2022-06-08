@@ -126,6 +126,7 @@
 
             </plugin>
 
+            <!-- COMPILER PLUGIN GUIDE: https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -140,31 +141,29 @@
                         <scope>compile</scope>
                     </dependency>
 
+                    <dependency>
+                        <groupId>org.checkerframework</groupId>
+                        <artifactId>checker</artifactId>
+                        <version>3.22.1</version>
+                    </dependency>
+
                 </dependencies>
 
                 <configuration>
 
                     <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <release>${jdk.version}</release>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-
-                    <showWarnings>true</showWarnings>
-                    <failOnWarning>false</failOnWarning>
-                    <showDeprecation>true</showDeprecation>
-                    <fork>true</fork>
-
-                    <!-- error-prone issues -->
-                    <!-- https://github.com/andyglick/java-errorprone-compiler-demo-->
-                    <!--https://github.com/google/guava/blob/master/pom.xml-->
-                    <!-- https://github.com/codylerum/errorprone_java16/blob/master/pom.xml -->
-                    <!-- https://github.com/google/error-prone/issues/1242-->
-
                     <compilerArgs>
+
+                        <Xmaxerrs>10000</Xmaxerrs>
+                        <Xmaxwarns>10000</Xmaxwarns>
+
+                        <!-- -Awarns turns type-checking errors into warnings. -->
+                        <arg>-Awarns</arg>
+
                         <arg>-parameters</arg>
                         <arg>-XDcompilePolicy=simple</arg>
 
-                        <!-- https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
+                        <!-- FORMATTER GUIDE: https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
                         <!-- @formatter:off -->
                         <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF</arg>
                         <!-- @formatter:on -->
@@ -180,6 +179,21 @@
                         <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
                         <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
                     </compilerArgs>
+                    <target>${jdk.version}</target>
+                    <release>${jdk.version}</release>
+
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <showWarnings>true</showWarnings>
+                    <failOnWarning>false</failOnWarning>
+                    <showDeprecation>true</showDeprecation>
+
+                    <!-- error-prone issues -->
+                    <!-- https://github.com/andyglick/java-errorprone-compiler-demo-->
+                    <!--https://github.com/google/guava/blob/master/pom.xml-->
+                    <!-- https://github.com/codylerum/errorprone_java16/blob/master/pom.xml -->
+                    <!-- https://github.com/google/error-prone/issues/1242-->
+
+                    <fork>true</fork>
 
                     <!--
                     If and when we want to add annotation processors: add them here
@@ -200,7 +214,34 @@
                             <artifactId>lombok</artifactId>
                             <version>${lombok.version}</version>
                         </path>
+
+                        <!-- To compile without using the Checker Framework, pass -P !checkerframework on the Maven command line.-->
+                        <path>
+                            <groupId>org.checkerframework</groupId>
+                            <artifactId>checker</artifactId>
+                            <version>${checker-framework.version}</version>
+                        </path>
                     </annotationProcessorPaths>
+
+                    <annotationProcessors>
+                        <annotationProcessor>
+                            org.checkerframework.checker.nullness.NullnessChecker
+                        </annotationProcessor>
+                        <annotationProcessor>
+                            org.checkerframework.checker.interning.InterningChecker
+                        </annotationProcessor>
+                        <annotationProcessor>
+                            org.checkerframework.checker.fenum.FenumChecker
+                        </annotationProcessor>
+                        <annotationProcessor>
+                            org.checkerframework.checker.formatter.FormatterChecker
+                        </annotationProcessor>
+
+                        <!-- this is important, add lombok processor to the processors list -->
+                        <annotationProcessor>
+                            lombok.launch.AnnotationProcessorHider$AnnotationProcessor
+                        </annotationProcessor>
+                    </annotationProcessors>
                 </configuration>
             </plugin>
 
