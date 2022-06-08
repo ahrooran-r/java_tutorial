@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<!--https://github.com/google/guava/blob/master/pom.xml-->
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,7 +15,10 @@
     <packaging>jar</packaging>
 
     <properties>
-        <checkerframework.version>3.22.1</checkerframework.version>
+        <error-prone.version>2.14.0</error-prone.version>
+        <checker-framework.version>3.22.1</checker-framework.version>
+        <spotbugs.version>4.7.0</spotbugs.version>
+        <spotbugs.plugin.version>4.6.0.2</spotbugs.plugin.version>
     </properties>
 
     <dependencies>
@@ -36,12 +36,29 @@
             <version>2.4.0</version>
         </dependency>
 
-        <!-- INSTALLATION GUIDE: https://errorprone.info/docs/installation -->
-        <!-- https://mvnrepository.com/artifact/com.google.errorprone/error_prone_annotations -->
         <dependency>
             <groupId>com.google.errorprone</groupId>
             <artifactId>error_prone_annotations</artifactId>
-            <version>2.14.0</version>
+            <version>${error-prone.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${checker-framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${checker-framework.version}</version>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
@@ -67,6 +84,124 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.7.0.0</version>
+                <configuration>
+
+                    <effort>max</effort>
+
+                    <dependencies>
+                        <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
+                        <dependency>
+                            <groupId>com.github.spotbugs</groupId>
+                            <artifactId>spotbugs</artifactId>
+                            <version>4.7.0</version>
+                            <type>pom</type>
+                        </dependency>
+                    </dependencies>
+
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>1.12.0</version>
+                        </plugin>
+                    </plugins>
+
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>spotbugs</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+
+                <dependencies>
+
+                    <!-- INSTALLATION GUIDE: https://errorprone.info/docs/installation -->
+                    <dependency>
+                        <groupId>com.google.errorprone</groupId>
+                        <artifactId>error_prone_core</artifactId>
+                        <version>${error-prone.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+
+                </dependencies>
+
+                <configuration>
+
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <release>${jdk.version}</release>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+
+                    <showWarnings>true</showWarnings>
+                    <failOnWarning>false</failOnWarning>
+                    <showDeprecation>true</showDeprecation>
+                    <fork>true</fork>
+
+                    <!-- error-prone issues -->
+                    <!-- https://github.com/andyglick/java-errorprone-compiler-demo-->
+                    <!--https://github.com/google/guava/blob/master/pom.xml-->
+                    <!-- https://github.com/codylerum/errorprone_java16/blob/master/pom.xml -->
+                    <!-- https://github.com/google/error-prone/issues/1242-->
+
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                        <arg>-XDcompilePolicy=simple</arg>
+
+                        <!-- https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
+                        <!-- @formatter:off -->
+                        <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF</arg>
+                        <!-- @formatter:on -->
+
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+                        <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                        <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                    </compilerArgs>
+
+                    <!--
+                    If and when we want to add annotation processors: add them here
+                    If 'annotationProcessorPaths' is set, processors will no longer be
+                    discovered on the regular -classpath; see also 'Using Error Prone
+                    together with other annotation processors' below.
+                    -->
+
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.google.errorprone</groupId>
+                            <artifactId>error_prone_core</artifactId>
+                            <version>${error-prone.version}</version>
+                        </path>
+
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
 
         </plugins>
