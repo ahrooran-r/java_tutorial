@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * When `mvn clean compile` error-prone should show bugs here
+ * When `mvn clean verify` spotbugs should show bugs here
  */
-@SuppressWarnings("SameNameButDifferent")
-public class _1_Errorprone {
+@SuppressFBWarnings(value = "MS_EXPOSE_REP", justification = "an example to use spotbugs annotations")
+public class _1_SpotBugs {
 
     @Getter
     private static final Set<Short> s = new HashSet<>();
