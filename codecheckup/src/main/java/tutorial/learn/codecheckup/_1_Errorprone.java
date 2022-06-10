@@ -1,6 +1,5 @@
 package tutorial.learn.codecheckup;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 
 import java.util.HashSet;
@@ -8,6 +7,7 @@ import java.util.Set;
 
 /**
  * When `mvn clean compile` error-prone should show bugs here
+ * <a href="https://errorprone.info/api/latest/com/google/errorprone/annotations/package-summary.html">annotation summary</a>
  */
 @SuppressWarnings("SameNameButDifferent")
 public class _1_Errorprone {

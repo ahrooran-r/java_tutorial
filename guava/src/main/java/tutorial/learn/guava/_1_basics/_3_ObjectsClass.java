@@ -30,5 +30,15 @@ public class _3_ObjectsClass {
     public static void main(String[] args) {
         _3_ObjectsClass obj = new _3_ObjectsClass(20, "HelloWorld!");
         System.out.println(obj);
+
+
+        Object me = new Object();
+        Object you = new Object();
+
+        // Returns the first of two given parameters that is not null,
+        // if either is, or otherwise throws a NullPointerException.
+        // Only for JAVA-8
+        // JAVA-9 and above can use built-in `Objects#requireNonNullElse()`
+        MoreObjects.firstNonNull(me, you);
     }
 }
