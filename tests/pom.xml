@@ -10,8 +10,8 @@
         <version>1.0.0-Final</version>
     </parent>
 
-    <artifactId>junit</artifactId>
-    <name>junit</name>
+    <artifactId>tests</artifactId>
+    <name>tests</name>
     <packaging>jar</packaging>
 
     <properties>
