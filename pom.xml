@@ -15,6 +15,7 @@
         <module>guava</module>
         <module>tests</module>
         <module>codecheckup</module>
+        <module>config</module>
     </modules>
 
     <properties>

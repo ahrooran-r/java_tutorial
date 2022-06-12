@@ -23,6 +23,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>tutorial</groupId>
+            <artifactId>config</artifactId>
+            <version>1.0.0-Final</version>
+        </dependency>
+
         <!--
         https://github.com/gaul/modernizer-maven-plugin
         public class Example {
@@ -178,7 +184,9 @@
 
                         <!-- FORMATTER GUIDE: https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
                         <!-- @formatter:off -->
-                        <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF</arg>
+                        <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF
+                            -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF
+                        </arg>
                         <!-- @formatter:on -->
 
                         <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>

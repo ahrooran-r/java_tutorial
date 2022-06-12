@@ -20,6 +20,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>tutorial</groupId>
+            <artifactId>config</artifactId>
+            <version>1.0.0-Final</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
         <dependency>
             <groupId>org.junit.platform</groupId>
