@@ -173,8 +173,9 @@
                         <Xmaxerrs>10000</Xmaxerrs>
                         <Xmaxwarns>10000</Xmaxwarns>
                     </compilerArguments>
+                    <compilerArgument>-Xlint:all</compilerArgument>
 
-                    <compilerArgs>
+                    <compilerArgs combine.children="append">
 
                         <!-- -Awarns turns type-checking errors into warnings. -->
                         <arg>-Awarns</arg>
@@ -184,9 +185,7 @@
 
                         <!-- FORMATTER GUIDE: https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
                         <!-- @formatter:off -->
-                        <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF
-                            -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF
-                        </arg>
+                        <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF</arg>
                         <!-- @formatter:on -->
 
                         <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>

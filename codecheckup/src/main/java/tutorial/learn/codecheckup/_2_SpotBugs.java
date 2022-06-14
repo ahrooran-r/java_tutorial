@@ -10,7 +10,7 @@ import java.util.Set;
  * When `mvn clean verify` spotbugs should show bugs here
  */
 @SuppressFBWarnings(value = "MS_EXPOSE_REP", justification = "an example to use spotbugs annotations")
-public class _1_SpotBugs {
+public class _2_SpotBugs {
 
     @Getter
     private static final Set<Short> s = new HashSet<>();
