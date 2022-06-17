@@ -11,6 +11,7 @@ import java.util.List;
 public class _2_ThrowablesClass {
     public static void main(String[] args) {
         _2_ThrowablesClass t = new _2_ThrowablesClass();
+        t.m2();
     }
 
     private void m2() {
