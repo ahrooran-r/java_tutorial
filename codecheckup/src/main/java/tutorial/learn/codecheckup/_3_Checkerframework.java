@@ -1,11 +1,7 @@
 package tutorial.learn.codecheckup;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.checkerframework.checker.index.qual.Positive;
-
-import java.util.HashSet;
-import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * When `mvn clean compile` error-prone should show bugs here
@@ -14,15 +10,12 @@ import java.util.Set;
 @SuppressWarnings("SameNameButDifferent")
 public class _3_Checkerframework {
 
-    @Getter
-    @Setter
-    public static @Positive int positiveInteger;
+    public static @Nullable Object nullable = null;
 
     public static void main(final String[] args) {
+        System.out.println("Hello World!");
 
-        setPositiveInteger(-4);
-
-        System.out.println(getPositiveInteger());
-        // should show warning underline  or something on positiveInteger ???
+        @NonNull Object nn = nullable; // error on this line
+        System.out.println(nn);
     }
 }
