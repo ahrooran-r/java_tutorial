@@ -29,5 +29,8 @@ public class _1_SetsClass {
 
         // power set –> the set of all possible subsets of that set.
         Set<Set<String>> powerSet = Sets.powerSet(union);
+
+        // The returned set contains all elements that are contained by set1 and not contained by set2.
+        Sets.difference(set1, set2);
     }
 }
