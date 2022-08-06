@@ -15,6 +15,9 @@ public class _7_ClassToInstanceMapClass {
         nums.putInstance(Integer.class, 20);
         nums.putInstance(Double.class, 0.2d);
 
-        nums = ImmutableClassToInstanceMap.of();
+        nums = new ImmutableClassToInstanceMap.Builder<Number>()
+                .put(Integer.class, 20)
+                .put(Double.class, 0.2d)
+                .build();
     }
 }
