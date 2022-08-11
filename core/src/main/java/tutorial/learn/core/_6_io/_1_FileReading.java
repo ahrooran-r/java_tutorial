@@ -43,7 +43,7 @@ public class _1_FileReading {
         try (BufferedReader file_buffer =
                      new BufferedReader(
                              new InputStreamReader(
-                             new FileInputStream(fileName), StandardCharsets.UTF_8))) {
+                                     new FileInputStream(fileName), StandardCharsets.UTF_8))) {
             String line;
             while ((line = file_buffer.readLine()) != null) {
                 sb.append(line).append("\n");

@@ -211,7 +211,9 @@
                                 <!-- @formatter:off -->
                                 <arg>-parameters</arg>-->
                                 <arg>-XDcompilePolicy=simple</arg>-->
-                                <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF</arg>
+                                <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF
+                                    -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF
+                                </arg>
                                 <!-- @formatter:on -->
 
                             </compilerArgs>

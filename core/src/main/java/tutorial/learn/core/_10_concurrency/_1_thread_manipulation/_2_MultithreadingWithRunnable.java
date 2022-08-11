@@ -1,6 +1,6 @@
 package tutorial.learn.core._10_concurrency._1_thread_manipulation;
 
-abstract class NewRunner implements Runnable{
+abstract class NewRunner implements Runnable {
 
     private void execute() {
         for (int i = 0; i < 5; i++) {

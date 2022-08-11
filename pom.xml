@@ -17,6 +17,7 @@
         <module>codecheckup</module>
         <module>config</module>
         <module>immutable</module>
+        <module>apache_httpclient</module>
     </modules>
 
     <properties>

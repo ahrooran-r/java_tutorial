@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>config</artifactId>
-    <name>confif</name>
+    <name>config</name>
     <packaging>jar</packaging>
 
 </project>

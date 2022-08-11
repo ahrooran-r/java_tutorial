@@ -65,7 +65,7 @@ public class _4_File_Class {
                 if (anItem.isFile())
                     System.out.printf("%s is a File\n", anItem.toString());
 
-                // Tests whether the file denoted by this abstract pathname is a directory
+                    // Tests whether the file denoted by this abstract pathname is a directory
                 else if (anItem.isDirectory())
                     System.out.printf("%s is a Directory\n", anItem.toString());
 

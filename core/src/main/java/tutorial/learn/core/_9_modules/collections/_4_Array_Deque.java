@@ -3,7 +3,6 @@ package tutorial.learn.core._9_modules.collections;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.Queue;
 
 public class _4_Array_Deque {
 

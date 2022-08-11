@@ -12,8 +12,7 @@ public class _2_TryWithResources {
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         // New and improved try-with-resources statement in JDK 9
-        try(br)
-        {
+        try (br) {
             String st = br.readLine();
             System.out.println(st);
         }
@@ -30,6 +29,7 @@ public class _2_TryWithResources {
             return br.readLine();
         }
     }
+
     // The following example uses a finally block instead of a try-with-resources statement:
     static String readFirstLineFromFileWithFinallyBlock(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));

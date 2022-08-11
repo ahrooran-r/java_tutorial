@@ -32,8 +32,7 @@ public class _4_LivelockExample {
             if (lock2.tryLock()) {
                 System.out.println("worker1 has acquired lock2");
                 lock2.unlock();
-            }
-            else {
+            } else {
                 System.out.println("worker1 has not acquired lock2");
                 continue;
             }
@@ -60,8 +59,7 @@ public class _4_LivelockExample {
             if (lock1.tryLock()) {
                 System.out.println("worker2 has acquired lock1");
                 lock1.unlock();
-            }
-            else {
+            } else {
                 System.out.println("worker2 has not acquired lock2");
                 continue;
             }

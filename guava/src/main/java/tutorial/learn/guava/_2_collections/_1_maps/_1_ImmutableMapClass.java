@@ -1,6 +1,8 @@
 package tutorial.learn.guava._2_collections._1_maps;
 
-import com.google.common.collect.*;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 
 import java.util.Map;
 
