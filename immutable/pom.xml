@@ -10,8 +10,8 @@
         <version>1.0.0-Final</version>
     </parent>
 
-    <artifactId>immutable_tutorial</artifactId>
-    <name>immutable_tutorial</name>
+    <artifactId>immutable</artifactId>
+    <name>immutable</name>
     <packaging>jar</packaging>
 
     <dependencies>

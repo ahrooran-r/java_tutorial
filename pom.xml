@@ -16,7 +16,7 @@
         <module>tests</module>
         <module>codecheckup</module>
         <module>config</module>
-        <module>immutable_tutorial</module>
+        <module>immutable</module>
     </modules>
 
     <properties>

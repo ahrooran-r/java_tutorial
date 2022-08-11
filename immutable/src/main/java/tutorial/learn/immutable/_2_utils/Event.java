@@ -1,4 +1,4 @@
-package tutorial.learn.immutable_tutorial._2_utils;
+package tutorial.learn.immutable._2_utils;
 
 import org.immutables.value.Value;
 

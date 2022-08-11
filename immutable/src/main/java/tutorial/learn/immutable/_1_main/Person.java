@@ -1,7 +1,7 @@
-package tutorial.learn.immutable_tutorial._1_main;
+package tutorial.learn.immutable._1_main;
 
 import org.immutables.value.Value;
-import tutorial.learn.immutable_tutorial._2_utils.ImmutableEvent;
+import tutorial.learn.immutable._2_utils.ImmutableEvent;
 
 import java.util.List;
 import java.util.Set;

@@ -1,7 +1,7 @@
-package tutorial.learn.immutable_tutorial._1_main;
+package tutorial.learn.immutable._1_main;
 
 import lombok.extern.slf4j.Slf4j;
-import tutorial.learn.immutable_tutorial._2_utils.ImmutableEvent;
+import tutorial.learn.immutable._2_utils.ImmutableEvent;
 
 import java.time.LocalDate;
 import java.util.List;
