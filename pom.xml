@@ -18,6 +18,8 @@
         <module>config</module>
         <module>immutable</module>
         <module>apache_httpclient</module>
+        <module>kafka</module>
+        <module>socket</module>
     </modules>
 
     <properties>
