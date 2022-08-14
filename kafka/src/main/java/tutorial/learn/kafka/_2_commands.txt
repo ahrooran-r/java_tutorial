@@ -1,0 +1,36 @@
+====== TOPICS ========
+
+create kafka topics ->
+kafka-topics --create --bootstrap-server 127.0.0.1:9092 --topic first_topic --partitions 3 --replication-factor 1
+
+list the topics ->
+kafka-topics --bootstrap-server 127.0.0.1:9092 --list
+
+describe a topic ->
+kafka-topics --bootstrap-server 127.0.0.1:9092 --topic first_topic --describe
+
+delete topic ->
+kafka-topics --bootstrap-server 127.0.0.1:9092 --topic first_topic --delete
+
+
+======= PRODUCER ===========
+
+basic ->
+kafka-console-producer --broker-list localhost:9092 --topic first_topic
+
+with acks ->
+kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks=all
+
+
+========CONSUMER ============
+
+basic only reads incoming new messages from when the consumer is created ->
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic
+
+read from beginning ->
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+
+
+
+
+
