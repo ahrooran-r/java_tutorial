@@ -1,0 +1,17 @@
+For quick summary: https://doc.akka.io/docs/akka/current/typed/from-classic.html
+
+Actor
+    -> Name, Path       => can locate actor with these parameters
+    -> Message          => any class that is serializable
+    -> Message Queue    => When one actor tells another actor something, that is put into the actor's queue
+    -> Behaviour        => Actors have code that tells them what to do when there is a message
+                        => will take the message out of the queue and process it one at a time
+
+    -> Each actor runs in its own thread
+    -> Actor won't share data (each actor has its own state -> variables in actor's memory space won't be shared)
+    -> Messages must be immutable (hence thread safe)
+        => actor can copy the data and then change it
+        => but original data cannot be changed
+    -> processing of a message cannot be interrupted (hence no interrupted exception)
+
+    -> Manager actor can hold a collection to hold results

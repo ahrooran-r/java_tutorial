@@ -1,0 +1,33 @@
+1. Fire and Forget
+
+    the `actor.tell()` method
+
+    this is most used pattern
+
+    just give the command and forget
+
+2. Request - Adapted Response
+
+    Sender sends a command and awaits response
+
+    For this, the message from sender should have itself (ActorRef) attached to it -> so receiver can identify and send
+    back the response
+
+    Adapted response -> both sender and receiver communicate with `custom messages`
+
+3. Ask pattern
+
+   Sender sends a message and it immediately `expects` a response
+
+   This is different from pattern-2
+
+   If the receiver does not reply within a time frame, there will be an error thrown in the sender
+
+   Note that by default, akka messages are `delivered at most once`
+
+   That is messages are not sent again in case they are lost
+
+   Hence, by using this pattern, `we can know if a message is lost in transit` (because of timeout error)
+   We can resend that message if it is lost
+
+   NOTE: We can use ask pattern outside akka behaviors. This allows to get data out of akka from Main method

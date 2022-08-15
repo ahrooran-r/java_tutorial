@@ -1,0 +1,3 @@
+Akka promises 2 things:
+    1. When messages are delivered -> they are delivered at most once <== This means messages may get lost
+    2. Message order is guaranteed between 2 actors
