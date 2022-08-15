@@ -21,6 +21,7 @@
         <module>kafka</module>
         <module>socket</module>
         <module>akka</module>
+        <module>datastructures_algorithms</module>
     </modules>
 
     <properties>
