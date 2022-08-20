@@ -22,7 +22,21 @@
         <module>socket</module>
         <module>akka</module>
         <module>datastructures_algorithms</module>
+        <module>apache_commons</module>
     </modules>
+
+    <developers>
+        <developer>
+            <name>ahrooran</name>
+            <id>ahrooran-r</id>
+            <url>https://www.linkedin.com/in/ahrooran</url>
+            <email>ahrooran17@gmail.com</email>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+            <timezone>+5:30</timezone>
+        </developer>
+    </developers>
 
     <properties>
 
