@@ -23,6 +23,7 @@
         <module>akka</module>
         <module>datastructures_algorithms</module>
         <module>apache_commons</module>
+        <module>design_patterns</module>
     </modules>
 
     <developers>
