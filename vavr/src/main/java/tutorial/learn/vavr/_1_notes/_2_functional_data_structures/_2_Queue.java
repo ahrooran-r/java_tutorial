@@ -1,4 +1,4 @@
-package tutorial.learn.vavr._2_functional_data_structures;
+package tutorial.learn.vavr._1_notes._2_functional_data_structures;
 
 import io.vavr.Tuple2;
 import io.vavr.collection.Queue;

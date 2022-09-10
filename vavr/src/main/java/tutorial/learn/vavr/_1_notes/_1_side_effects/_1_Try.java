@@ -1,4 +1,4 @@
-package tutorial.learn.vavr._1_side_effects;
+package tutorial.learn.vavr._1_notes._1_side_effects;
 
 import io.vavr.control.Try;
 
