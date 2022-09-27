@@ -25,6 +25,7 @@
         <module>apache_commons</module>
         <module>design_patterns</module>
         <module>vavr</module>
+        <module>validation</module>
     </modules>
 
     <developers>
