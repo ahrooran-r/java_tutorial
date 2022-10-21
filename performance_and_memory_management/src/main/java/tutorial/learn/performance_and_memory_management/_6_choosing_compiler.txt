@@ -8,5 +8,4 @@ i.e., this `-client` flag is ignored
 
 However, this is still useful since startup time will be lower as analysis will be minimal
 
--server         -> select 32-bit server compiler
--d64            -> select 64-bit server compiler
+-server         -> select server compiler

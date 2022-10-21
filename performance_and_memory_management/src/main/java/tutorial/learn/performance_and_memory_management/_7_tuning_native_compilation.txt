@@ -1,0 +1,30 @@
+-XX:+PrintFlagsFinal        -> flag to print all java flags
+
+In my machine this would result ->
+ahroo@Ahroo:/mnt/c/Users/msi$ java.exe -XX:+PrintFlagsFinal | grep 'Compiler'
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+
+Now the compiler uses 4 threads for compilation process
+Note: CICompiler is common for all compilers aka client compiler and server compiler
+
+------------------------------------------------------------------------------------------------------------------------
+
+Another way:
+
+1. jps                                      -> get process id of any running java application
+
+2. jinfo -flag CICompilerCount 14316        -> give the id to jinfo, and it will return java flag
+
+To tune compiler count:
+
+-XX:+CICompilerCount=6
+
+minimum value in 64bit machine is 2 threads.
+
+
+-XX:CompileThreshold       -> controls the number of times a method needs to run before jit compilation kicks in
+
+e.g.: -XX:CompileThreshold=1000
+
+This flag is useful when application has lots of loops which run relatively early
+
