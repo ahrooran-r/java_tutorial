@@ -1,0 +1,4 @@
+References escape only if we return pointer to an object from a method.
+1. returning an iterator
+2. returning a duplicate copy of data structure
+3. having an immutable datastructures
