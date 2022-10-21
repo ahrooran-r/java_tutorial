@@ -1,4 +1,4 @@
-package tutorial.learn.performance_and_memory_management._2_prime_example;
+package tutorial.learn.performance_and_memory_management.performance_optimization._2_prime_example;
 
 public class Main {
 
