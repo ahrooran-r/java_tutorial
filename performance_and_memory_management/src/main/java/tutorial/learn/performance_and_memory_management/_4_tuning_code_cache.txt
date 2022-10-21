@@ -1,0 +1,52 @@
+The code cache has a limited size and if there are lots of methods that could be compiled to this
+level well then some will need to be removed from the code cache to make space for the next one to be
+inserted and the removed method could be weakened powered and be added later on.
+
+In other words in large applications with lots of methods that could be compiled to level four over
+time some methods might be moved into the code cache then moved out then moved back again and so on.
+Now when this happens the default code cache size might not be sufficient and increasing the size of
+the code cache can lead to an improvement in our application's performance.
+
+Now if that happens you might see the following warning message appear in the console of your application.
+`VM Warning: Code cache is full. Compiler has been disabled`
+This is telling us that the code would run better if another part of it could be compiled to native machine code.
+But there's no room for it in the code cache, AND all the code that is in the code cache is actively being used.
+So there's no part of the code cache that can easily be cleaned up. This is a warning message it doesn't stop the
+application running, but it does mean that it's not running in an optimal way.
+
+-XX:+PrintCodeCache     ->      Prints the code cache for program
+
+
+                                CodeHeap 'non-profiled nmethods': size=120000Kb used=58Kb max_used=58Kb free=119941Kb
+                                 bounds [0x000002505ede0000, 0x000002505f050000, 0x0000025066310000]
+                                CodeHeap 'profiled nmethods': size=120000Kb used=302Kb max_used=302Kb free=119697Kb
+                                 bounds [0x00000250578b0000, 0x0000025057b20000, 0x000002505ede0000]
+                                CodeHeap 'non-nmethods': size=5760Kb used=1111Kb max_used=1112Kb free=4648Kb
+                                 bounds [0x0000025057310000, 0x0000025057580000, 0x00000250578b0000]
+                                 total_blobs=618 nmethods=231 adapters=312
+                                 compilation: enabled
+                                              stopped_count=0, restarted_count=0
+                                 full_count=0
+
+
+                                Above is the result for the application.
+
+                        ->      Code cache allocated is about 12MB but only 1.5MB is being used altogether.
+
+Different types of code caches:
+
+1. InitialCodeCacheSize     ->      size of code cache when application starts
+                            ->      very small in size -> about 160kB
+
+2. ReservedCodeCacheSize    ->      the code cache can grow over time
+                            ->      this is the maximum size that can be allocated when cache grows
+
+3. CodeCacheExpansionSize   ->      how quickly the code cache should grow
+                            ->      aka how much extra space we need to allocate each time code cache gets filled
+
+Each flag can be set in Bytes, KB or MB or GB.
+
+e.g.: -XX:ReservedCodeCacheSize=28     -> bytes (note that there is no `+` here)
+      -XX:ReservedCodeCacheSize=28k    -> kb (or 28K) -> case can be upper or lower
+      -XX:ReservedCodeCacheSize=28m    -> mb
+      -XX:ReservedCodeCacheSize=28g    -> gb

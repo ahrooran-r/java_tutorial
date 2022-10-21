@@ -1,0 +1,12 @@
+We can choose which compiler to be used at runtime
+
+-client         -> select client compiler
+
+No special flags here.
+However, in some OSs, the tier 4 compilation still takes place, unfortunately.
+i.e., this `-client` flag is ignored
+
+However, this is still useful since startup time will be lower as analysis will be minimal
+
+-server         -> select 32-bit server compiler
+-d64            -> select 64-bit server compiler

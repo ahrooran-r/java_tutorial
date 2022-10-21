@@ -1,0 +1,59 @@
+-XX:+PrintCompilation       -> Find out what kind of compilation is happening within JVM environment
+                            -> -XX means this is an `Advanced option`
+                            -> the `+` or `-` next to the colon(:) means whether to switch this flag on or off
+                            -> then the option name such as `PrintCompilation`
+                            -> flags are case sensitive
+                                    i.e., XX should be capital and
+                                            option name should be camelCase similar to typical java naming style)
+
+                            -> e.g. output for this flag (_2_prime_example)
+                                 24    1       3       java.lang.String::hashCode (60 bytes)
+                                 25    3       3       java.lang.StringLatin1::hashCode (42 bytes)
+                                 ---
+                                 37   34     n 0       java.lang.invoke.MethodHandle::linkToStatic(LLLLLLL)L (native)   (static)
+                                 37   35     n 0       java.lang.System::arraycopy (native)   (static)
+                                 ---
+                                 40   42   !   3       java.util.concurrent.ConcurrentHashMap::putVal (432 bytes)
+                                 ---
+                                 82       3       java.util.HashMap::putVal (300 bytes)   made not entrant
+                                 86       3       java.util.HashMap::put (13 bytes)   made not entrant
+                                 ---
+                                 60  105       1       java.lang.module.ModuleDescriptor$Exports::source (5 bytes)
+                                 60  107       1       java.lang.module.ModuleDescriptor$Exports::targets (5 bytes)
+                                 ---
+                                 104  204     n 0       java.lang.invoke.MethodHandle::linkToStatic(L)L (native)   (static)
+                                 ---
+                                 107  177 %     4       java.lang.StringLatin1::hashCode @ 10 (42 bytes)
+
+                                   col_number       meaning
+
+                                   -> 1             # of milliseconds since VM started
+
+                                   -> 2             order in which method or code block is compiled
+
+                                                        not in order -> means some parts took longer to compile
+                                                        could be because of
+                                                            1. multi threading issues
+                                                            2. code complexity
+                                                            3. longer code block
+
+                                   -> 3             n -> native method
+                                                    s -> synchronized method
+                                                    ! -> there is an exception handling going here
+                                                    % -> code has been natively compiled, and is now running in a special part of memory called code-cache
+                                                      -> i.e., method is now running in the most optimal way possible
+
+                                   -> 4             this column has numbers 0 - 4
+                                                        this column tells us what kind of compilation has taken place
+                                                    0   ->  no compilation
+                                                    1
+                                                    2       level 1 - 4 -> increasing level of compilation
+                                                    3
+                                                    4   -> at this point highest level of compilation occurred
+
+                                   -5               now we have the line of code that is actually compiled
+                                                        mostly system code because we did not run this for longer times
+
+
+-XX:+UnlockDiagnosticVMOptions -XX:+LogCompilation    -> instead of printing it to console, this command will log the result
+
