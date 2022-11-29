@@ -1,0 +1,31 @@
+Suppose we have an object called `Man man`.
+
+Calling methods on this object say `man.speak()`
+    -> usually returns something from the object say `Hello World!`
+
+    -> But sometimes we need to change the behaviour of object
+        without actually changing the contents of that specific object
+        (strategy pattern is different because we change the contents of the object by hooking different
+         behaviours)
+
+Decorator pattern
+
+1. What we do is create another object say `Person person`
+2. Then wrap `man` with `person`
+3. Now point call to person instead of man
+4. So man.speak() becomes person.speak()
+    -> `person` object will then delegate the calls to `man` object and get results
+    -> then if the results are not good, can override the results dynamically
+    -> then return the modified results to the caller
+
+If we develop this concept, we can wrap an object A with another object B with another object C
+    -> Calls to A will be delegated by B which will be delegated by C
+
+A decorator will have is-A and has-A relationship with the object.
+So, if B is a decorator for A, then ->
+
+public class B extends A {
+    private A a;
+}
+
+This design pattern is not suitable scenarios involving ordering of decorators.
