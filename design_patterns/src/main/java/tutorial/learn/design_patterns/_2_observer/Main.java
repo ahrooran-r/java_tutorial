@@ -2,7 +2,7 @@ package tutorial.learn.design_patterns._2_observer;
 
 import tutorial.learn.design_patterns._2_observer.object.Newspaper;
 import tutorial.learn.design_patterns._2_observer.object.Television;
-import tutorial.learn.design_patterns._2_observer.suject.WeatherData;
+import tutorial.learn.design_patterns._2_observer.subject.WeatherData;
 
 public class Main {
     public static void main(String[] args) {

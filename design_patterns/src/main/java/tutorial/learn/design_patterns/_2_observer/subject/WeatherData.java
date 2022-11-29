@@ -1,4 +1,4 @@
-package tutorial.learn.design_patterns._2_observer.suject;
+package tutorial.learn.design_patterns._2_observer.subject;
 
 import com.google.common.collect.Sets;
 import lombok.AccessLevel;

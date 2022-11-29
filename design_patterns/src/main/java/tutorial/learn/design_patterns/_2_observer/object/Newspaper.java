@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.math.Stats;
 import lombok.extern.slf4j.Slf4j;
 import tutorial.learn.design_patterns._2_observer.Display;
-import tutorial.learn.design_patterns._2_observer.suject.Subject;
+import tutorial.learn.design_patterns._2_observer.subject.Subject;
 
 @Slf4j
 public class Newspaper implements Observer, Display {

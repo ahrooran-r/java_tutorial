@@ -2,7 +2,7 @@ package tutorial.learn.design_patterns._2_observer.object;
 
 import lombok.extern.slf4j.Slf4j;
 import tutorial.learn.design_patterns._2_observer.Display;
-import tutorial.learn.design_patterns._2_observer.suject.Subject;
+import tutorial.learn.design_patterns._2_observer.subject.Subject;
 
 @Slf4j
 public class Television implements Observer, Display {
