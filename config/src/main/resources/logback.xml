@@ -12,7 +12,9 @@
 
         <encoder>
             <!-- ADD COLOURS TO LOG: https://github.com/Tuxdude/logback-colorizer/blob/master/README.md -->
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+            <pattern>
+                %green(%d{ISO8601}) %highlight(%-5level) %magenta([%t]) %cyan(%C{1.}) - %msg%n%throwable
+            </pattern>
         </encoder>
     </appender>
 
