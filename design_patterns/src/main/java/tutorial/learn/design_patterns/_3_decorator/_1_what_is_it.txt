@@ -24,8 +24,14 @@ If we develop this concept, we can wrap an object A with another object B with a
 A decorator will have is-A and has-A relationship with the object.
 So, if B is a decorator for A, then ->
 
-public class B extends A {
+public class AbstractOfActualDecorator extends AbstractOfActualConcrete {
     private A a;
+}
+
+public class Decorator extends AbstractOfActualDecorator {
+}
+
+public class Concrete extends AbstractOfActualConcrete {
 }
 
 This design pattern is not suitable scenarios involving ordering of decorators.
