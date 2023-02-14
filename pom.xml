@@ -27,6 +27,7 @@
         <module>vavr</module>
         <module>validation</module>
         <module>performance_and_memory_management</module>
+        <module>jmh</module>
     </modules>
 
     <developers>
