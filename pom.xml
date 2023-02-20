@@ -28,6 +28,7 @@
         <module>validation</module>
         <module>performance_and_memory_management</module>
         <module>jmh</module>
+        <module>byte_buddy</module>
     </modules>
 
     <developers>
