@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>learn</artifactId>
         <groupId>tutorial</groupId>
+        <artifactId>util</artifactId>
         <version>1.0.0-Final</version>
     </parent>
 
-    <artifactId>performance_and_memory_management</artifactId>
-    <name>performance_and_memory_management</name>
+    <artifactId>apache_commons</artifactId>
+    <name>apache_commons</name>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -23,15 +23,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>1.36</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.36</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
         </dependency>
 
     </dependencies>

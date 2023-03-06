@@ -211,6 +211,8 @@
                                 <!-- @formatter:off -->
                                 <arg>-parameters</arg>-->
                                 <arg>-XDcompilePolicy=simple</arg>-->
+
+                                <!-- mvn -pl '!:codecheckup' install -DskipTests -->
                                 <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF
                                     -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF
                                 </arg>

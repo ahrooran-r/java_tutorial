@@ -12,24 +12,20 @@
 
     <modules>
         <module>core</module>
-        <module>guava</module>
         <module>tests</module>
         <module>codecheckup</module>
         <module>config</module>
         <module>immutable</module>
-        <module>apache_httpclient</module>
         <module>kafka</module>
-        <module>socket</module>
         <module>akka</module>
         <module>datastructures_algorithms</module>
-        <module>apache_commons</module>
         <module>design_patterns</module>
-        <module>vavr</module>
         <module>validation</module>
         <module>performance_and_memory_management</module>
-        <module>jmh</module>
         <module>byte_buddy</module>
-        <module>eclipse_collections</module>
+        <module>collections</module>
+        <module>net</module>
+        <module>util</module>
     </modules>
 
     <developers>
