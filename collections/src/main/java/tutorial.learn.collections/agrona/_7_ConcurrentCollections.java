@@ -8,6 +8,7 @@ import org.agrona.concurrent.ringbuffer.OneToOneRingBuffer;
 import org.agrona.concurrent.ringbuffer.RingBufferDescriptor;
 
 import java.nio.ByteBuffer;
+import java.util.HashSet;
 
 public class _7_ConcurrentCollections {
     public static void main(String[] args) {
@@ -27,23 +28,37 @@ public class _7_ConcurrentCollections {
         // SENDING DATA IS DIRECT AND EASY
 
         //prepare some data
-        final UnsafeBuffer toSend = new UnsafeBuffer(ByteBuffer.allocateDirect(10));
-        toSend.putStringWithoutLengthAscii(0, "012345679");
+        final String testString = "0123456789";
+        final UnsafeBuffer toSend = new UnsafeBuffer(ByteBuffer.allocateDirect(testString.length()));
+        toSend.putStringWithoutLengthAscii(0, testString);
 
         //write the data
-        boolean sentOk = ringBuffer.write(1, toSend, 0, 10);
+        boolean sentOk = ringBuffer.write(1, toSend, 0, testString.length());
 
+        // ringBuffer provides the following two methods to show the current production and consumption.
+        //the current consumer position in the ring buffer
+        ringBuffer.consumerPosition();
+        //the current producer position in the ring buffer
+        ringBuffer.producerPosition();
     }
 
     // READING DATA IS SOMEWHAT LIKE THIS. THERE ARE 2 WAYS
     static class MessageCapture implements MessageHandler {
+        private final HashSet<String> receivedStrings = new HashSet<>();
+        private int count = 0;
+
+        /**
+         * msgType field is the identifier of the message and will be stored in the message header.
+         * If this field is not used, it must be set to a value greater than 0.
+         */
         @Override
         public void onMessage(int msgTypeId, MutableDirectBuffer buffer, int index, int length) {
-            System.out.println("do something");
+            receivedStrings.add(buffer.getStringWithoutLengthAscii(index, length));
+            count++;
         }
     }
 
-    class ControlledMessageCapture implements ControlledMessageHandler {
+    static class ControlledMessageCapture implements ControlledMessageHandler {
         @Override
         public ControlledMessageHandler.Action onMessage(int msgTypeId, MutableDirectBuffer buffer, int index, int length) {
             System.out.println("do something");
@@ -60,5 +75,6 @@ public class _7_ConcurrentCollections {
 
         // OTHER TYPES:
         // https://aeroncookbook.com/agrona/concurrent/#broadcast
+        // https://www.sobyte.net/post/2021-12/agrona/
     }
 }
