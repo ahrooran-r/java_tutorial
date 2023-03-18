@@ -4,293 +4,293 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>learn</artifactId>
-        <groupId>tutorial</groupId>
-        <version>1.0.0-Final</version>
-    </parent>
+        <parent>
+            <artifactId>learn</artifactId>
+            <groupId>tutorial</groupId>
+            <version>1.0.0-Final</version>
+        </parent>
 
-    <artifactId>codecheckup</artifactId>
-    <name>codecheckup</name>
-    <packaging>jar</packaging>
+        <artifactId>codecheckup</artifactId>
+        <name>codecheckup</name>
+        <packaging>jar</packaging>
 
-    <properties>
-        <error-prone.version>2.14.0</error-prone.version>
-        <error-prone.javac.version>9+181-r4173-1</error-prone.javac.version>
-        <checker-framework.version>3.22.2</checker-framework.version>
-        <spotbugs.version>4.7.0</spotbugs.version>
-        <spotbugs.plugin.version>4.7.0.0</spotbugs.plugin.version>
-    </properties>
+    <!--    <properties>-->
+    <!--        <error-prone.version>2.14.0</error-prone.version>-->
+    <!--        <error-prone.javac.version>9+181-r4173-1</error-prone.javac.version>-->
+    <!--        <checker-framework.version>3.22.2</checker-framework.version>-->
+    <!--        <spotbugs.version>4.7.0</spotbugs.version>-->
+    <!--        <spotbugs.plugin.version>4.7.0.0</spotbugs.plugin.version>-->
+    <!--    </properties>-->
 
-    <dependencies>
+    <!--    <dependencies>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>tutorial</groupId>-->
-        <!--            <artifactId>config</artifactId>-->
-        <!--            <version>1.0.0-Final</version>-->
-        <!--        </dependency>-->
+    <!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <groupId>tutorial</groupId>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <artifactId>config</artifactId>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <version>1.0.0-Final</version>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </dependency>&ndash;&gt;-->
 
-        <!--
-        https://github.com/gaul/modernizer-maven-plugin
-        public class Example {
-            @SuppressModernizer
-            public static void method() { ... }
-        }
-        -->
-        <dependency>
-            <groupId>org.gaul</groupId>
-            <artifactId>modernizer-maven-annotations</artifactId>
-            <version>2.4.0</version>
-        </dependency>
+    <!--        &lt;!&ndash;-->
+    <!--        https://github.com/gaul/modernizer-maven-plugin-->
+    <!--        public class Example {-->
+    <!--            @SuppressModernizer-->
+    <!--            public static void method() { ... }-->
+    <!--        }-->
+    <!--        &ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.gaul</groupId>-->
+    <!--            <artifactId>modernizer-maven-annotations</artifactId>-->
+    <!--            <version>2.4.0</version>-->
+    <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.google.errorprone</groupId>
-            <artifactId>error_prone_annotations</artifactId>
-            <version>${error-prone.version}</version>
-        </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>com.google.errorprone</groupId>-->
+    <!--            <artifactId>error_prone_annotations</artifactId>-->
+    <!--            <version>${error-prone.version}</version>-->
+    <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>provided</scope>
-        </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>com.github.spotbugs</groupId>-->
+    <!--            <artifactId>spotbugs-annotations</artifactId>-->
+    <!--            <version>RELEASE</version>-->
+    <!--            <scope>provided</scope>-->
+    <!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.checkerframework</groupId>
-            <artifactId>checker-qual</artifactId>
-            <version>${checker-framework.version}</version>
-        </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>org.checkerframework</groupId>-->
+    <!--            <artifactId>checker-qual</artifactId>-->
+    <!--            <version>${checker-framework.version}</version>-->
+    <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.google.errorprone</groupId>
-            <artifactId>javac</artifactId>
-            <version>${error-prone.javac.version}</version>
-        </dependency>
+    <!--        <dependency>-->
+    <!--            <groupId>com.google.errorprone</groupId>-->
+    <!--            <artifactId>javac</artifactId>-->
+    <!--            <version>${error-prone.javac.version}</version>-->
+    <!--        </dependency>-->
 
-    </dependencies>
+    <!--    </dependencies>-->
 
-    <build>
-        <plugins>
+    <!--    <build>-->
+    <!--        <plugins>-->
 
-            <plugin>
-                <groupId>org.gaul</groupId>
-                <artifactId>modernizer-maven-plugin</artifactId>
-                <version>2.4.0</version>
+    <!--            <plugin>-->
+    <!--                <groupId>org.gaul</groupId>-->
+    <!--                <artifactId>modernizer-maven-plugin</artifactId>-->
+    <!--                <version>2.4.0</version>-->
 
-                <configuration>
-                    <javaVersion>${jdk.version}</javaVersion>
-                </configuration>
+    <!--                <configuration>-->
+    <!--                    <javaVersion>${jdk.version}</javaVersion>-->
+    <!--                </configuration>-->
 
-                <executions>
-                    <execution>
-                        <id>modernizer</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>modernizer</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <id>modernizer</id>-->
+    <!--                        <phase>verify</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>modernizer</goal>-->
+    <!--                        </goals>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
 
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs.plugin.version}</version>
+    <!--            <plugin>-->
+    <!--                <groupId>com.github.spotbugs</groupId>-->
+    <!--                <artifactId>spotbugs-maven-plugin</artifactId>-->
+    <!--                <version>${spotbugs.plugin.version}</version>-->
 
-                <dependencies>
-                    <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
-                    <dependency>
-                        <groupId>com.github.spotbugs</groupId>
-                        <artifactId>spotbugs</artifactId>
-                        <version>${spotbugs.version}</version>
-                        <type>pom</type>
-                    </dependency>
-                </dependencies>
+    <!--                <dependencies>-->
+    <!--                    &lt;!&ndash; https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs &ndash;&gt;-->
+    <!--                    <dependency>-->
+    <!--                        <groupId>com.github.spotbugs</groupId>-->
+    <!--                        <artifactId>spotbugs</artifactId>-->
+    <!--                        <version>${spotbugs.version}</version>-->
+    <!--                        <type>pom</type>-->
+    <!--                    </dependency>-->
+    <!--                </dependencies>-->
 
-                <configuration>
+    <!--                <configuration>-->
 
-                    <effort>max</effort>
+    <!--                    <effort>max</effort>-->
 
-                    <plugins>
-                        <plugin>
-                            <groupId>com.h3xstream.findsecbugs</groupId>
-                            <artifactId>findsecbugs-plugin</artifactId>
-                            <version>1.12.0</version>
-                        </plugin>
-                    </plugins>
+    <!--                    <plugins>-->
+    <!--                        <plugin>-->
+    <!--                            <groupId>com.h3xstream.findsecbugs</groupId>-->
+    <!--                            <artifactId>findsecbugs-plugin</artifactId>-->
+    <!--                            <version>1.12.0</version>-->
+    <!--                        </plugin>-->
+    <!--                    </plugins>-->
 
-                </configuration>
+    <!--                </configuration>-->
 
-                <executions>
-                    <execution>
-                        <id>spotbugs</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <id>spotbugs</id>-->
+    <!--                        <phase>verify</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>check</goal>-->
+    <!--                        </goals>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
 
-        </plugins>
-    </build>
+    <!--        </plugins>-->
+    <!--    </build>-->
 
 
-    <profiles>
-        <profile>
-            <id>checkerframework</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.10.1</version>
-                        <configuration>
-                            <fork>true</fork> <!-- Must fork or else JVM arguments are ignored. -->
-                            <compilerArguments>
-                                <Xmaxerrs>10000</Xmaxerrs>
-                                <Xmaxwarns>10000</Xmaxwarns>
-                            </compilerArguments>
+    <!--    <profiles>-->
+    <!--        <profile>-->
+    <!--            <id>checkerframework</id>-->
+    <!--            <activation>-->
+    <!--                <jdk>[1.8,)</jdk>-->
+    <!--            </activation>-->
+    <!--            <build>-->
+    <!--                <plugins>-->
+    <!--                    <plugin>-->
+    <!--                        <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                        <version>3.10.1</version>-->
+    <!--                        <configuration>-->
+    <!--                            <fork>true</fork> &lt;!&ndash; Must fork or else JVM arguments are ignored. &ndash;&gt;-->
+    <!--                            <compilerArguments>-->
+    <!--                                <Xmaxerrs>10000</Xmaxerrs>-->
+    <!--                                <Xmaxwarns>10000</Xmaxwarns>-->
+    <!--                            </compilerArguments>-->
 
-                            <annotationProcessorPaths>
+    <!--                            <annotationProcessorPaths>-->
 
-                                <path>
-                                    <groupId>org.checkerframework</groupId>
-                                    <artifactId>checker</artifactId>
-                                    <version>${checker-framework.version}</version>
-                                </path>
+    <!--                                <path>-->
+    <!--                                    <groupId>org.checkerframework</groupId>-->
+    <!--                                    <artifactId>checker</artifactId>-->
+    <!--                                    <version>${checker-framework.version}</version>-->
+    <!--                                </path>-->
 
-                                <path>
-                                    <groupId>com.google.errorprone</groupId>
-                                    <artifactId>error_prone_core</artifactId>
-                                    <version>${error-prone.version}</version>
-                                </path>
+    <!--                                <path>-->
+    <!--                                    <groupId>com.google.errorprone</groupId>-->
+    <!--                                    <artifactId>error_prone_core</artifactId>-->
+    <!--                                    <version>${error-prone.version}</version>-->
+    <!--                                </path>-->
 
-                                <path>
-                                    <groupId>org.projectlombok</groupId>
-                                    <artifactId>lombok</artifactId>
-                                    <version>${lombok.version}</version>
-                                </path>
+    <!--                                <path>-->
+    <!--                                    <groupId>org.projectlombok</groupId>-->
+    <!--                                    <artifactId>lombok</artifactId>-->
+    <!--                                    <version>${lombok.version}</version>-->
+    <!--                                </path>-->
 
-                            </annotationProcessorPaths>
+    <!--                            </annotationProcessorPaths>-->
 
-                            <annotationProcessors>
+    <!--                            <annotationProcessors>-->
 
-                                <!-- Add all the checkers you want to enable here -->
-                                <annotationProcessor>
-                                    org.checkerframework.checker.nullness.NullnessChecker
-                                </annotationProcessor>
+    <!--                                &lt;!&ndash; Add all the checkers you want to enable here &ndash;&gt;-->
+    <!--                                <annotationProcessor>-->
+    <!--                                    org.checkerframework.checker.nullness.NullnessChecker-->
+    <!--                                </annotationProcessor>-->
 
-                                <annotationProcessor>
-                                    org.checkerframework.checker.interning.InterningChecker
-                                </annotationProcessor>
+    <!--                                <annotationProcessor>-->
+    <!--                                    org.checkerframework.checker.interning.InterningChecker-->
+    <!--                                </annotationProcessor>-->
 
-                                <annotationProcessor>
-                                    org.checkerframework.checker.fenum.FenumChecker
-                                </annotationProcessor>
+    <!--                                <annotationProcessor>-->
+    <!--                                    org.checkerframework.checker.fenum.FenumChecker-->
+    <!--                                </annotationProcessor>-->
 
-                                <annotationProcessor>
-                                    org.checkerframework.checker.formatter.FormatterChecker
-                                </annotationProcessor>
+    <!--                                <annotationProcessor>-->
+    <!--                                    org.checkerframework.checker.formatter.FormatterChecker-->
+    <!--                                </annotationProcessor>-->
 
-                                <!-- this is important, add lombok processor to the processors list -->
-                                <annotationProcessor>
-                                    lombok.launch.AnnotationProcessorHider$AnnotationProcessor
-                                </annotationProcessor>
+    <!--                                &lt;!&ndash; this is important, add lombok processor to the processors list &ndash;&gt;-->
+    <!--                                <annotationProcessor>-->
+    <!--                                    lombok.launch.AnnotationProcessorHider$AnnotationProcessor-->
+    <!--                                </annotationProcessor>-->
 
-                            </annotationProcessors>
+    <!--                            </annotationProcessors>-->
 
-                            <compilerArgs>
-                                <!-- -Awarns turns type-checking errors into warnings. -->
-                                <!-- <arg>-Awarns</arg> -->
+    <!--                            <compilerArgs>-->
+    <!--                                &lt;!&ndash; -Awarns turns type-checking errors into warnings. &ndash;&gt;-->
+    <!--                                &lt;!&ndash; <arg>-Awarns</arg> &ndash;&gt;-->
 
-                                <!-- FORMATTER GUIDE: https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code -->
-                                <!-- @formatter:off -->
-                                <arg>-parameters</arg>-->
-                                <arg>-XDcompilePolicy=simple</arg>-->
+    <!--                                &lt;!&ndash; FORMATTER GUIDE: https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html#exclude_part_of_code &ndash;&gt;-->
+    <!--                                &lt;!&ndash; @formatter:off &ndash;&gt;-->
+    <!--                                <arg>-parameters</arg>&ndash;&gt;-->
+    <!--                                <arg>-XDcompilePolicy=simple</arg>&ndash;&gt;-->
 
-                                <!-- mvn -pl '!:codecheckup' install -DskipTests -->
-                                <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF
-                                    -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF
-                                </arg>
-                                <!-- @formatter:on -->
+    <!--                                &lt;!&ndash; mvn -pl '!:codecheckup' install -DskipTests &ndash;&gt;-->
+    <!--                                <arg>-Xplugin:ErrorProne -XepAllErrorsAsWarnings -Xep:UnusedMethod:OFF-->
+    <!--                                    -Xep:JavaTimeDefaultTimeZone:OFF -Xep:ObjectEqualsForPrimitives:OFF-->
+    <!--                                </arg>-->
+    <!--                                &lt;!&ndash; @formatter:on &ndash;&gt;-->
 
-                            </compilerArgs>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-            <dependencies>
-                <dependency>
-                    <groupId>org.checkerframework</groupId>
-                    <artifactId>checker</artifactId>
-                    <version>${checker-framework.version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
+    <!--                            </compilerArgs>-->
+    <!--                        </configuration>-->
+    <!--                    </plugin>-->
+    <!--                </plugins>-->
+    <!--            </build>-->
+    <!--            <dependencies>-->
+    <!--                <dependency>-->
+    <!--                    <groupId>org.checkerframework</groupId>-->
+    <!--                    <artifactId>checker</artifactId>-->
+    <!--                    <version>${checker-framework.version}</version>-->
+    <!--                </dependency>-->
+    <!--            </dependencies>-->
+    <!--        </profile>-->
 
-        <profile>
-            <id>checkerframework-jdk8</id>
-            <activation>
-                <jdk>1.8</jdk>
-            </activation>
-            <!-- using github.com/google/error-prone-javac is required when running on JDK 8 -->
-            <properties>
-                <javac.version>9+181-r4173-1</javac.version>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.google.errorprone</groupId>
-                    <artifactId>javac</artifactId>
-                    <version>9+181-r4173-1</version>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.10.1</version>
-                        <configuration>
-                            <fork>true</fork> <!-- Must fork or else JVM arguments are ignored. -->
-                            <source>1.8</source>
-                            <target>1.8</target>
-                            <compilerArgs combine.children="append">
-                                <arg>
-                                    -J-Xbootclasspath/p:${settings.localRepository}/com/google/errorprone/javac/${javac.version}/javac-${javac.version}.jar
-                                </arg>
-                            </compilerArgs>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+    <!--        <profile>-->
+    <!--            <id>checkerframework-jdk8</id>-->
+    <!--            <activation>-->
+    <!--                <jdk>1.8</jdk>-->
+    <!--            </activation>-->
+    <!--            &lt;!&ndash; using github.com/google/error-prone-javac is required when running on JDK 8 &ndash;&gt;-->
+    <!--            <properties>-->
+    <!--                <javac.version>9+181-r4173-1</javac.version>-->
+    <!--            </properties>-->
+    <!--            <dependencies>-->
+    <!--                <dependency>-->
+    <!--                    <groupId>com.google.errorprone</groupId>-->
+    <!--                    <artifactId>javac</artifactId>-->
+    <!--                    <version>9+181-r4173-1</version>-->
+    <!--                </dependency>-->
+    <!--            </dependencies>-->
+    <!--            <build>-->
+    <!--                <plugins>-->
+    <!--                    <plugin>-->
+    <!--                        <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                        <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                        <version>3.10.1</version>-->
+    <!--                        <configuration>-->
+    <!--                            <fork>true</fork> &lt;!&ndash; Must fork or else JVM arguments are ignored. &ndash;&gt;-->
+    <!--                            <source>1.8</source>-->
+    <!--                            <target>1.8</target>-->
+    <!--                            <compilerArgs combine.children="append">-->
+    <!--                                <arg>-->
+    <!--                                    -J-Xbootclasspath/p:${settings.localRepository}/com/google/errorprone/javac/${javac.version}/javac-${javac.version}.jar-->
+    <!--                                </arg>-->
+    <!--                            </compilerArgs>-->
+    <!--                        </configuration>-->
+    <!--                    </plugin>-->
+    <!--                </plugins>-->
+    <!--            </build>-->
+    <!--        </profile>-->
 
-        <profile>
-            <id>checkerframework-jdk9orlater</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.10.1</version>
-                        <configuration>
-                            <fork>true</fork>
-                            <release>17</release>
-                            <compilerArgs combine.children="append">
-                                <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
-                            </compilerArgs>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!--        <profile>-->
+    <!--            <id>checkerframework-jdk9orlater</id>-->
+    <!--            <activation>-->
+    <!--                <jdk>[9,)</jdk>-->
+    <!--            </activation>-->
+    <!--            <build>-->
+    <!--                <plugins>-->
+    <!--                    <plugin>-->
+    <!--                        <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                        <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                        <version>3.10.1</version>-->
+    <!--                        <configuration>-->
+    <!--                            <fork>true</fork>-->
+    <!--                            <release>17</release>-->
+    <!--                            <compilerArgs combine.children="append">-->
+    <!--                                <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>-->
+    <!--                            </compilerArgs>-->
+    <!--                        </configuration>-->
+    <!--                    </plugin>-->
+    <!--                </plugins>-->
+    <!--            </build>-->
+    <!--        </profile>-->
+    <!--    </profiles>-->
 
 </project>

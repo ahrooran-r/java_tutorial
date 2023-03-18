@@ -34,13 +34,13 @@
         <dependency>
             <groupId>it.unimi.dsi</groupId>
             <artifactId>fastutil</artifactId>
-            <version>8.5.11</version>
+            <version>${fastutil.version}</version>
         </dependency>
 
         <dependency>
             <groupId>it.unimi.dsi</groupId>
             <artifactId>dsiutils</artifactId>
-            <version>2.7.2</version>
+            <version>${dsiutils.version}</version>
         </dependency>
 
         <!-- Eclipse Collections -->
@@ -48,13 +48,13 @@
         <dependency>
             <groupId>org.eclipse.collections</groupId>
             <artifactId>eclipse-collections-api</artifactId>
-            <version>12.0.0.M1</version>
+            <version>${eclipse-collections.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse.collections</groupId>
             <artifactId>eclipse-collections</artifactId>
-            <version>12.0.0.M1</version>
+            <version>${eclipse-collections.version}</version>
         </dependency>
 
         <!-- Apache Collections 4 -->
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
-            <version>4.4</version>
+            <version>${commons-collections4.version}</version>
         </dependency>
 
         <!-- Vavr -->
@@ -71,7 +71,7 @@
             <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>
             <!-- used in spring: 0.10.3-->
-            <version>1.0.0-alpha-4</version>
+            <version>${vavr.version}</version>
         </dependency>
 
         <!-- Agrona -->
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>org.agrona</groupId>
             <artifactId>agrona</artifactId>
-            <version>1.17.1</version>
+            <version>${agrona.version}</version>
         </dependency>
 
     </dependencies>

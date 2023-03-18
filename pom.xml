@@ -42,14 +42,50 @@
     </developers>
 
     <properties>
-
-        <jdk.version>17</jdk.version>
+        <jdk.version>19</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
+        <!-- dependency versions -->
+
+        <scala.binary.version>3</scala.binary.version>
+        <akka.version>2.8.0</akka.version>
+
+        <jackson-databind.version>2.14.2</jackson-databind.version>
+        <org-json.version>20230227</org-json.version>
+
+        <elasticsearch-java.version>8.6.2</elasticsearch-java.version>
+        <elasticsearch-rest-high-level-client.version>7.17.9</elasticsearch-rest-high-level-client.version>
+
+        <junit.version>5.9.2</junit.version>
+        <junit-platform-launcher.version>1.9.2</junit-platform-launcher.version>
+        <junit-vintage-engine.version>5.8.2</junit-vintage-engine.version>
+        <mockito-junit-jupiter.version>5.1.1</mockito-junit-jupiter.version>
+
+        <fastutil.version>8.5.12</fastutil.version>
+        <dsiutils.version>2.7.3</dsiutils.version>
+        <eclipse-collections.version>12.0.0.M1</eclipse-collections.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <vavr.version>1.0.0-alpha-4</vavr.version>
+        <agrona.version>1.17.1</agrona.version>
+
+        <commons-math3.version>3.6.1</commons-math3.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <guava.version>31.1-jre</guava.version>
+
+        <lombok.version>1.18.26</lombok.version>
         <error-prone.version>2.14.0</error-prone.version>
-        <lombok.version>1.18.24</lombok.version>
+        <byte-buddy.version>1.14.2</byte-buddy.version>
+
+        <apache-httpclient5.version>5.2.1</apache-httpclient5.version>
+        <immutables-value.version>2.9.3</immutables-value.version>
+        <twitter-hbc-core.version>2.2.0</twitter-hbc-core.version>
+        <kafka-clients.version>3.4.0</kafka-clients.version>
+        <jmh.version>1.36</jmh.version>
+        <logback-classic.version>1.4.6</logback-classic.version>
+
     </properties>
 
     <dependencies>
@@ -57,7 +93,6 @@
         <!--
         Lombok config: https://stackoverflow.com/a/62909509/10582056
         -->
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -65,11 +100,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.11</version>
+            <version>${logback-classic.version}</version>
         </dependency>
 
     </dependencies>

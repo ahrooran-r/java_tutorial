@@ -14,11 +14,6 @@
     <name>akka</name>
     <packaging>jar</packaging>
 
-    <properties>
-        <scala.binary.version>2.13</scala.binary.version>
-        <akka.version>2.6.19</akka.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -33,14 +28,12 @@
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-typed -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor-typed_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor-testkit-typed -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor-testkit-typed_${scala.binary.version}</artifactId>

@@ -14,10 +14,6 @@
     <name>tests</name>
     <packaging>jar</packaging>
 
-    <properties>
-        <junit.version>5.9.2</junit.version>
-    </properties>
-
     <dependencies>
 
         <dependency>
@@ -26,15 +22,13 @@
             <version>1.0.0-Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
-            <version>1.9.2</version>
+            <version>${junit-platform-launcher.version}</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -42,7 +36,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -59,19 +52,17 @@
         </dependency>
 
         <!--        &lt;!&ndash; Supports existing JUnit3 and JUnit 4 testcases &ndash;&gt;-->
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine &ndash;&gt;-->
         <!--        <dependency>-->
         <!--            <groupId>org.junit.vintage</groupId>-->
         <!--            <artifactId>junit-vintage-engine</artifactId>-->
-        <!--            <version>5.8.2</version>-->
+        <!--            <version>${junit-vintage-engine.version}</version>-->
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.1.1</version>
+            <version>${mockito-junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
 

@@ -12,10 +12,4 @@
 
     <artifactId>validation</artifactId>
     <name>validation</name>
-
-    <properties>
-    </properties>
-
-    <dependencies>
-    </dependencies>
 </project>

@@ -22,37 +22,34 @@
             <version>1.0.0-Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
-            <version>3.2.1</version>
+            <version>${kafka-clients.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.twitter/hbc-core -->
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>hbc-core</artifactId>
-            <version>2.2.0</version>
+            <version>${twitter-hbc-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>co.elastic.clients</groupId>
             <artifactId>elasticsearch-java</artifactId>
-            <version>8.3.3</version>
+            <version>${elasticsearch-java.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>7.17.5</version>
+            <version>${elasticsearch-rest-high-level-client.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.3</version>
+            <version>${jackson-databind.version}</version>
         </dependency>
 
     </dependencies>
