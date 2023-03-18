@@ -1,4 +1,4 @@
-package tutorial.learn.core._9_modules.collections;
+package tutorial.learn.core._11_collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package tutorial.learn.core._9_modules.PrimitiveWrappers;
+package tutorial.learn.core._12_primitive_wrappers;
 
 public class _1_Integer_Module {
     public static void main(String[] args) {

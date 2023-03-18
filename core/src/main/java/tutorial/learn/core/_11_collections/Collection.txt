@@ -23,3 +23,6 @@ Legacy Implementations
 1. Vector       -> ArrayList
 2. HashTable    -> HashMap
 3. Stack        -> ArrayDeque
+
+
+https://www.falkhausen.de/Java-8/java.util/Collection-Hierarchy.html

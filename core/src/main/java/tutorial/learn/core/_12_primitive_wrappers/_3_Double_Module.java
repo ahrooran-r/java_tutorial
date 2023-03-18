@@ -1,4 +1,4 @@
-package tutorial.learn.core._9_modules.PrimitiveWrappers;
+package tutorial.learn.core._12_primitive_wrappers;
 
 public class _3_Double_Module {
     public static void main(String[] args) {
@@ -8,6 +8,7 @@ public class _3_Double_Module {
         // CONSTANTS
         System.out.println(Double.POSITIVE_INFINITY); // -> Infinity
         System.out.println(Double.NEGATIVE_INFINITY); // -> -Infinity
+        System.out.println(Double.NaN); // -> Not A Number, like null
 
         // METHODS
 
