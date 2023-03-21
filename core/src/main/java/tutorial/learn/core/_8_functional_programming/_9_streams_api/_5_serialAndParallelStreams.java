@@ -1,4 +1,4 @@
-package tutorial.learn.core._10_concurrency._9_streams_api;
+package tutorial.learn.core._8_functional_programming._9_streams_api;
 
 import java.util.stream.IntStream;
 
