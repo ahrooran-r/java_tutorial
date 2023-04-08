@@ -28,3 +28,4 @@ target
 .idea
 java_complete.iml
 junit.iml
+performance_and_memory_management/src/main/resources/large-file.json

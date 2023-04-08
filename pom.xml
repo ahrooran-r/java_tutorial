@@ -86,6 +86,13 @@
         <jmh.version>1.36</jmh.version>
         <logback-classic.version>1.4.6</logback-classic.version>
 
+        <gson.version>2.10.1</gson.version>
+        <jackson-databind.version>2.15.0-rc2</jackson-databind.version>
+        <org.json.version>20230227</org.json.version>
+        <jsoniter.version>0.9.23</jsoniter.version>
+        <javaassist.version>3.29.2-GA</javaassist.version>
+
+
     </properties>
 
     <dependencies>
