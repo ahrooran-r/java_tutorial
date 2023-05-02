@@ -5,26 +5,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.jsoniter.JsonIterator;
+import com.jsoniter.any.Any;
 import lombok.SneakyThrows;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.io.BufferedReader;
-import java.nio.file.Path;
 import java.util.*;
 
 public class JsonParse {
-
-    private static final Path path = Path.of(ReadFile.BASE_PATH, "large-file.json");
 
     private JsonParse() {
     }
 
     @SneakyThrows
-    public static void jackson(Blackhole blackhole) {
-        byte[] content = ReadFile.asBytes(path);
-        JsonNode array = new ObjectMapper().readTree(content);
+    public static void jackson(String content, Blackhole blackhole, ObjectMapper objectMapper) {
+        JsonNode array = objectMapper.readTree(content);
         array.forEach(category -> {
             String[] categoryField = category.get("cat").asText().split("~");
             String countryCode = categoryField[0];
@@ -67,8 +64,7 @@ public class JsonParse {
     }
 
     @SneakyThrows
-    public static void orgJson(Blackhole blackhole) {
-        String content = ReadFile.asString(path);
+    public static void orgJson(String content, Blackhole blackhole) {
         JSONArray array = new JSONArray(content);
         array.forEach(catObj -> {
             JSONObject category = (JSONObject) catObj;
@@ -113,57 +109,56 @@ public class JsonParse {
         });
     }
 
+    /**
+     * <a href="https://www.sitepoint.com/php-style-json-parsing-in-java-with-jsoniter/">tutorial</a>
+     */
     @SneakyThrows
-    public static void jsoniter(Blackhole blackhole) {
-        // String content = ReadFile.asString(path);
-        // JSONArray array = new JSONArray(content);
-        // array.forEach(catObj -> {
-        //     JSONObject category = (JSONObject) catObj;
-        //     String[] categoryField = category.getString("cat").split("~");
-        //     String countryCode = categoryField[0];
-        //     String gicsL2 = categoryField[1];
-        //
-        //     JSONArray statList = category.getJSONArray("statistics");
-        //     JSONObject ratioStatsMap = new JSONObject(statList.length());
-        //     List<String> ratioList = new ArrayList<>(statList.length());
-        //     statList.forEach(ratObj -> {
-        //         JSONObject ratioStat = (JSONObject) ratObj;
-        //         ratioStatsMap.put(ratioStat.getString("type"), ratioStat);
-        //         ratioList.add(ratioStat.getString("type"));
-        //     });
-        //
-        //     JSONObject symbolRatios = category.getJSONObject("ratios");
-        //     symbolRatios.keySet().forEach(symbolKey -> {
-        //         List<String> allRatioList = new LinkedList<>(ratioList);
-        //         String[] field = symbolKey.split("~");
-        //         String exchange = field[0];
-        //         String symbol = field[1];
-        //         JSONObject ratios = symbolRatios.getJSONObject(symbolKey);
-        //
-        //         ratios.keySet().forEach(key -> {
-        //             String segment = getSegment(key);
-        //             blackhole.consume(segment);
-        //             allRatioList.remove(key);
-        //         });
-        //
-        //         allRatioList.forEach(key -> {
-        //             String segment = getSegment(key);
-        //             blackhole.consume(segment);
-        //         });
-        //
-        //         blackhole.consume(exchange);
-        //         blackhole.consume(symbol);
-        //         blackhole.consume(countryCode);
-        //         blackhole.consume(gicsL2);
-        //         blackhole.consume(ratioStatsMap);
-        //     });
-        // });
+    public static void jsoniter(byte[] content, Blackhole blackhole) {
+        Any array = JsonIterator.deserialize(content);
+        array.forEach(category -> {
+            String[] categoryField = category.toString("cat").split("~");
+            String countryCode = categoryField[0];
+            String gicsL2 = categoryField[1];
+
+            Any statList = category.get("statistics");
+            Map<String, Any> ratioStatsMap = new HashMap<>(statList.size());
+            List<String> ratioList = new ArrayList<>(statList.size());
+            statList.forEach(ratioStat -> {
+                ratioStatsMap.put(ratioStat.toString("type"), ratioStat);
+                ratioList.add(ratioStat.toString("type"));
+            });
+
+            Map<String, Any> symbolRatios = category.get("ratios").asMap();
+            symbolRatios.keySet().forEach(symbolKey -> {
+                List<String> allRatioList = new LinkedList<>(ratioList);
+                String[] field = symbolKey.split("~");
+                String exchange = field[0];
+                String symbol = field[1];
+                Map<String, Any> ratios = symbolRatios.get(symbolKey).asMap();
+
+                ratios.keySet().forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                    allRatioList.remove(key);
+                });
+
+                allRatioList.forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                });
+
+                blackhole.consume(exchange);
+                blackhole.consume(symbol);
+                blackhole.consume(countryCode);
+                blackhole.consume(gicsL2);
+                blackhole.consume(ratioStatsMap);
+            });
+        });
     }
 
     @SneakyThrows
-    public static void gson(Blackhole blackhole) {
-        BufferedReader content = ReadFile.asReader(path);
-        JsonArray array = new Gson().fromJson(content, JsonArray.class);
+    public static void gson(String content, Blackhole blackhole, Gson gson) {
+        JsonArray array = gson.fromJson(content, JsonArray.class);
         array.forEach(catObj -> {
             JsonObject category = catObj.getAsJsonObject();
             String[] categoryField = category.get("cat").getAsString().split("~");
@@ -217,5 +212,4 @@ public class JsonParse {
             default -> "SEG_6";
         };
     }
-
 }

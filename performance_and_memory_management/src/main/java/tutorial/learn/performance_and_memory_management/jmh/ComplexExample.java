@@ -64,12 +64,15 @@ public class ComplexExample {
      * </ol>
      * State Scope:
      * <p>
-     * A state object can be reused across multiple calls to your benchmark method.
-     * JMH provides different scopes that the state object can be reused in. These are:
+     *      A state object can be reused across multiple calls to your benchmark method.
+     *      JMH provides different scopes that the state object can be reused in. These are:
+     * </p>
+     * <ol>
+     *     <li>Thread: each thread running the benchmark will create its own instance of the state object.</li>
+     *     <li>Group: each thread group running the benchmark will create its own instance of the state object.</li>
+     *     <li>Benchmark: all threads running the benchmark share the same state object.</li>
+     * </ol>
      * <p>
-     * Thread: each thread running the benchmark will create its own instance of the state object.
-     * Group: each thread group running the benchmark will create its own instance of the state object.
-     * Benchmark: all threads running the benchmark share the same state object.
      */
     @State(Scope.Benchmark)
     public static class PasswordState {
