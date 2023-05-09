@@ -1,26 +1,30 @@
 package tutorial.learn.performance_and_memory_management.jmh.json_benchmark;
 
+import com.dslplatform.json.DslJson;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.any.Any;
+import com.squareup.moshi.JsonAdapter;
 import lombok.SneakyThrows;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openjdk.jmh.infra.Blackhole;
 
+import java.io.StringReader;
 import java.util.*;
 
-public class JsonParse {
+public class Unstructured {
 
-    private JsonParse() {
+    private Unstructured() {
     }
 
     @SneakyThrows
-    public static void jackson(String content, Blackhole blackhole, ObjectMapper objectMapper) {
+    public static void jackson(byte[] content, Blackhole blackhole, ObjectMapper objectMapper) {
         JsonNode array = objectMapper.readTree(content);
         array.forEach(category -> {
             String[] categoryField = category.get("cat").asText().split("~");
@@ -158,7 +162,7 @@ public class JsonParse {
 
     @SneakyThrows
     public static void gson(String content, Blackhole blackhole, Gson gson) {
-        JsonArray array = gson.fromJson(content, JsonArray.class);
+        JsonArray array = gson.fromJson(new JsonReader(new StringReader(content)), JsonArray.class);
         array.forEach(catObj -> {
             JsonObject category = catObj.getAsJsonObject();
             String[] categoryField = category.get("cat").getAsString().split("~");
@@ -201,6 +205,99 @@ public class JsonParse {
             });
         });
     }
+
+    @SneakyThrows
+    public static void moshi(String content, Blackhole blackhole, JsonAdapter<List<Map<String, Object>>> moshi) {
+        List<Map<String, Object>> list = moshi.fromJson(content);
+        assert list != null;
+        list.forEach(category -> {
+            String[] categoryField = String.valueOf(category.get("cat")).split("~");
+            String countryCode = categoryField[0];
+            String gicsL2 = categoryField[1];
+
+            List<?> statList = (List<?>) category.get("statistics");
+            Map<String, Object> ratioStatsMap = new HashMap<>();
+            List<String> ratioList = new ArrayList<>(statList.size());
+            statList.forEach(ratObj -> {
+                Map<String, String> ratioStat = (Map<String, String>) ratObj;
+                ratioStatsMap.put(ratioStat.get("type"), ratioStat);
+                ratioList.add(ratioStat.get("type"));
+            });
+
+            Map<String, Object> symbolRatios = (Map<String, Object>) category.get("ratios");
+            symbolRatios.keySet().forEach(symbolKey -> {
+                List<String> allRatioList = new LinkedList<>(ratioList);
+                String[] field = symbolKey.split("~");
+                String exchange = field[0];
+                String symbol = field[1];
+                Map<String, String> ratios = (Map<String, String>) symbolRatios.get(symbolKey);
+
+                ratios.keySet().forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                    allRatioList.remove(key);
+                });
+
+                allRatioList.forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                });
+
+                blackhole.consume(exchange);
+                blackhole.consume(symbol);
+                blackhole.consume(countryCode);
+                blackhole.consume(gicsL2);
+                blackhole.consume(ratioStatsMap);
+            });
+        });
+    }
+
+    @SneakyThrows
+    public static void dsl(byte[] content, Blackhole blackhole, DslJson<Object> dslJson) {
+        List<Map> list = dslJson.deserializeList(Map.class, content, content.length);
+        assert list != null;
+        list.forEach(category -> {
+            String[] categoryField = String.valueOf(category.get("cat")).split("~");
+            String countryCode = categoryField[0];
+            String gicsL2 = categoryField[1];
+
+            List<?> statList = (List<?>) category.get("statistics");
+            Map<String, Object> ratioStatsMap = new HashMap<>();
+            List<String> ratioList = new ArrayList<>(statList.size());
+            statList.forEach(ratObj -> {
+                Map<String, String> ratioStat = (Map<String, String>) ratObj;
+                ratioStatsMap.put(ratioStat.get("type"), ratioStat);
+                ratioList.add(ratioStat.get("type"));
+            });
+
+            Map<String, Object> symbolRatios = (Map<String, Object>) category.get("ratios");
+            symbolRatios.keySet().forEach(symbolKey -> {
+                List<String> allRatioList = new LinkedList<>(ratioList);
+                String[] field = symbolKey.split("~");
+                String exchange = field[0];
+                String symbol = field[1];
+                Map<String, String> ratios = (Map<String, String>) symbolRatios.get(symbolKey);
+
+                ratios.keySet().forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                    allRatioList.remove(key);
+                });
+
+                allRatioList.forEach(key -> {
+                    String segment = getSegment(key);
+                    blackhole.consume(segment);
+                });
+
+                blackhole.consume(exchange);
+                blackhole.consume(symbol);
+                blackhole.consume(countryCode);
+                blackhole.consume(gicsL2);
+                blackhole.consume(ratioStatsMap);
+            });
+        });
+    }
+
 
     private static String getSegment(String ratio) {
         return switch (ratio) {

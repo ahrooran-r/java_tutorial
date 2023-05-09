@@ -1,6 +1,5 @@
 package tutorial.learn.performance_and_memory_management.jmh.json_benchmark;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -23,31 +22,47 @@ public class BenchmarkJson {
     public static void main(String[] args) throws IOException {
         Main.main(args);
 
-        // ReadFile readFile = new ReadFile();
-        // readFile.setUp();
-        //
-        // JsonParse.gson(readFile.asReader, new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous."));
+        // InitConfig initConfig = new InitConfig();
+        // initConfig.setUp();
+        // Blackhole blackhole = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
+
+        // Algo.dsl(initConfig.asBytes, blackhole, initConfig.dsljson);
     }
 
     @Benchmark
-    public void gson(ReadFile readFile, Blackhole blackhole) {
-        JsonParse.gson(readFile.asString, blackhole, readFile.gson);
+    public void gson(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.gson(initConfig.asString, blackhole, initConfig.gson);
     }
 
     @Benchmark
-    public void jackson(ReadFile readFile, Blackhole blackhole) {
-        JsonParse.jackson(readFile.asString, blackhole, readFile.objectMapper);
+    public void jackson(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.jackson(initConfig.asBytes, blackhole, initConfig.jackson);
     }
 
     @Benchmark
-    public void jsoniter(ReadFile readFile, Blackhole blackhole) {
-        JsonParse.jsoniter(readFile.asBytes, blackhole);
+    public void jsoniter(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.jsoniter(initConfig.asBytes, blackhole);
     }
 
     @Benchmark
-    public void orgJson(ReadFile readFile, Blackhole blackhole) {
-        JsonParse.orgJson(readFile.asString, blackhole);
+    public void orgJson(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.orgJson(initConfig.asString, blackhole);
     }
+
+    @Benchmark
+    public void moshi(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.moshi(initConfig.asString, blackhole, initConfig.moshi);
+    }
+
+    @Benchmark
+    public void dsl(InitConfig initConfig, Blackhole blackhole) {
+        Unstructured.dsl(initConfig.asBytes, blackhole, initConfig.dsljson);
+    }
+
+    // Benchmark               Mode  Cnt   Score   Error  Units
+    // BenchmarkJson.dsl      thrpt  120  14.006 ± 0.160  ops/s
+    // BenchmarkJson.gson     thrpt  120  10.945 ± 0.186  ops/s
+    // BenchmarkJson.jackson  thrpt  120   9.673 ± 0.041  ops/s
 }
 
 
