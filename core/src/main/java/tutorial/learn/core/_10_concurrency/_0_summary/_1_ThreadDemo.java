@@ -27,8 +27,7 @@ class Task implements Runnable {
 }
 
 public class _1_ThreadDemo {
-    @SneakyThrows
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Task task = new Task();
 
