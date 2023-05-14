@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.any.Any;
 import com.squareup.moshi.JsonAdapter;
@@ -15,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.io.StringReader;
 import java.util.*;
 
 public class Unstructured {
@@ -162,7 +160,7 @@ public class Unstructured {
 
     @SneakyThrows
     public static void gson(String content, Blackhole blackhole, Gson gson) {
-        JsonArray array = gson.fromJson(new JsonReader(new StringReader(content)), JsonArray.class);
+        JsonArray array = gson.fromJson(content, JsonArray.class);
         array.forEach(catObj -> {
             JsonObject category = catObj.getAsJsonObject();
             String[] categoryField = category.get("cat").getAsString().split("~");
@@ -297,7 +295,6 @@ public class Unstructured {
             });
         });
     }
-
 
     private static String getSegment(String ratio) {
         return switch (ratio) {

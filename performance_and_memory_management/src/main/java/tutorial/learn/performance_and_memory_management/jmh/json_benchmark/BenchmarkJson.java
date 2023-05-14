@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @Fork(value = 6)
-@Warmup(iterations = 2)
-@Measurement(iterations = 5)
+@Warmup(iterations = 5)
+@Measurement(iterations = 10)
 public class BenchmarkJson {
     public static void main(String[] args) throws IOException {
         Main.main(args);
@@ -58,11 +58,6 @@ public class BenchmarkJson {
     public void dsl(InitConfig initConfig, Blackhole blackhole) {
         Unstructured.dsl(initConfig.asBytes, blackhole, initConfig.dsljson);
     }
-
-    // Benchmark               Mode  Cnt   Score   Error  Units
-    // BenchmarkJson.dsl      thrpt  120  14.006 ± 0.160  ops/s
-    // BenchmarkJson.gson     thrpt  120  10.945 ± 0.186  ops/s
-    // BenchmarkJson.jackson  thrpt  120   9.673 ± 0.041  ops/s
 }
 
 
