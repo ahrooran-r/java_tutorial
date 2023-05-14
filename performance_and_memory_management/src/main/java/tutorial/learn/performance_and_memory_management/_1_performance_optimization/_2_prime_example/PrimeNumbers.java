@@ -1,4 +1,4 @@
-package tutorial.learn.performance_and_memory_management.performance_optimization._2_prime_example;
+package tutorial.learn.performance_and_memory_management._1_performance_optimization._2_prime_example;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package tutorial.learn.performance_and_memory_management.java_memory_model._3_escaping_reference._3_example;
+package tutorial.learn.performance_and_memory_management._2_java_memory_model._3_escaping_reference._3_example;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,11 +1,6 @@
-package tutorial.learn.performance_and_memory_management.java_memory_model._3_escaping_reference._5_exercise;
+package tutorial.learn.performance_and_memory_management._2_java_memory_model._3_escaping_reference._5_exercise;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BookCollection {
 	

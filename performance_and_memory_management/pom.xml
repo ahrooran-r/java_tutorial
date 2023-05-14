@@ -105,4 +105,23 @@
 
     </dependencies>
 
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                <configuration>-->
+    <!--                    <annotationProcessorPaths>-->
+    <!--                        &lt;!&ndash; WORKAROUND: https://issues.apache.org/jira/browse/MCOMPILER-369 &ndash;&gt;-->
+    <!--                        <path>-->
+    <!--                            <groupId>org.openjdk.jmh</groupId>-->
+    <!--                            <artifactId>jmh-generator-annprocess</artifactId>-->
+    <!--                            <version>1.36</version>-->
+    <!--                        </path>-->
+    <!--                    </annotationProcessorPaths>-->
+    <!--                </configuration>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+
 </project>
