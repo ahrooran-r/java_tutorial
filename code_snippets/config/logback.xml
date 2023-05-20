@@ -1,0 +1,96 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<configuration>
+
+    <import class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+    <import class="tutorial.learn.code_snippets.snippet_1_logging.log_config.LoggerNameBasedFilter"/>
+    <import class="ch.qos.logback.core.rolling.RollingFileAppender"/>
+    <import class="ch.qos.logback.classic.filter.ThresholdFilter"/>
+    <import class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy"/>
+    <import class="ch.qos.logback.classic.sift.SiftingAppender"/>
+    <import class="tutorial.learn.code_snippets.snippet_1_logging.log_config.LoggerNameBasedDiscriminator"/>
+    <import class="ch.qos.logback.classic.AsyncAppender"/>
+
+    <!-- un-comment for debugging logback-->
+    <!--<statusListener class="OnConsoleStatusListener"/>-->
+
+    <timestamp key="startTimestamp" datePattern="yyyy-MM-dd_HH-mm-ss"/>
+    <property name="LOG_PATH" value="./code_snippets/logs"/>
+
+    <!-- @formatter:off -->
+    <conversionRule conversionWord="delegateAwareClass" converterClass="tutorial.learn.code_snippets.snippet_1_logging.log_config.DelegateAwareClassCallerConverter" />
+    <!--<property name="LOG_FMT" value="%gray([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %green(%logger{0}) %magenta([%thread]) %highlight(%-5level) %cyan(%logger) - %msg%n%throwable"/>-->
+    <!--<property name="LOG_FMT" value="%gray([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %green(%logger{0}) %magenta([%thread]) %highlight(%-5level) %cyan(%class) - %msg%n%throwable"/>-->
+    <property name="LOG_FMT" value="%gray([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %green(%logger{0}) %magenta([%thread]) %highlight(%-5level) %cyan(%delegateAwareClass) - %msg%n%throwable"/>
+    <!-- @formatter:on -->
+
+    <appender name="STDOUT" class="ConsoleAppender">
+        <encoder class="PatternLayoutEncoder">
+            <pattern>${LOG_FMT}</pattern>
+        </encoder>
+        <filter class="LoggerNameBasedFilter"/>
+    </appender>
+
+    <appender name="ROLLING_ERROR" class="RollingFileAppender">
+        <file>${LOG_PATH}/ERROR-${startTimestamp}.log</file>
+        <encoder class="PatternLayoutEncoder">
+            <pattern>${LOG_FMT}</pattern>
+        </encoder>
+        <filter class="ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/archived/%d{yyyy-MM-dd}/ERROR.%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxFileSize>250MB</maxFileSize>
+            <maxHistory>50</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!--  https://stackoverflow.com/a/18398028/10582056  -->
+    <appender name="SIFT" class="SiftingAppender">
+        <discriminator class="LoggerNameBasedDiscriminator"/>
+        <sift>
+            <appender name="ROLLIN" class="RollingFileAppender">
+                <file>${LOG_PATH}/${fileName}-${startTimestamp}.log</file>
+                <encoder class="PatternLayoutEncoder">
+                    <pattern>${LOG_FMT}</pattern>
+                </encoder>
+
+                <filter class="LoggerNameBasedFilter"/>
+
+                <!-- https://logback.qos.ch/manual/appenders.html -->
+                <!-- search for `SizeAndTimeBasedRollingPolicy` -->
+                <rollingPolicy class="SizeAndTimeBasedRollingPolicy">
+                    <!-- daily rollover -->
+
+                    <!-- @formatter:off -->
+                    <fileNamePattern>${LOG_PATH}/archived/%d{yyyy-MM-dd}/${fileName}-${startTimestamp}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+                    <!-- @formatter:on -->
+
+                    <maxFileSize>250MB</maxFileSize>
+                    <maxHistory>50</maxHistory>
+                </rollingPolicy>
+            </appender>
+        </sift>
+    </appender>
+
+    <!--  https://logback.qos.ch/manual/appenders.html  -->
+    <!--  search for `AsyncAppender`  -->
+    <appender name="ASYNC" class="AsyncAppender">
+        <appender-ref ref="SIFT"/>
+        <queueSize>10000</queueSize>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <!-- Set ROOT level to TRACE and leave the code to handle what to log.
+         This gives full control to the code. If we set this to INFO then regardless of what is set in
+         log-settings.yml, the corresponding log would be discarded if that is of DEBUG or TRACE
+     -->
+    <root level="TRACE">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ASYNC"/>
+        <appender-ref ref="ROLLING_ERROR"/>
+    </root>
+
+</configuration>

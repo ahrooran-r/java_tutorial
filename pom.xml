@@ -26,6 +26,7 @@
         <module>collections</module>
         <module>net</module>
         <module>util</module>
+        <module>code_snippets</module>
     </modules>
 
     <developers>
@@ -64,6 +65,7 @@
         <dsiutils.version>2.7.3</dsiutils.version>
         <eclipse-collections.version>12.0.0.M1</eclipse-collections.version>
         <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-io.version>2.12.0</commons-io.version>
         <vavr.version>1.0.0-alpha-4</vavr.version>
         <agrona.version>1.17.1</agrona.version>
 
@@ -81,10 +83,10 @@
         <twitter-hbc-core.version>2.2.0</twitter-hbc-core.version>
         <kafka-clients.version>3.4.0</kafka-clients.version>
         <jmh.version>1.36</jmh.version>
-        <logback-classic.version>1.4.6</logback-classic.version>
+        <logback-classic.version>1.4.7</logback-classic.version>
 
         <gson.version>2.10.1</gson.version>
-        <jackson-databind.version>2.15.0-rc2</jackson-databind.version>
+        <jackson-databind.version>2.15.1</jackson-databind.version>
         <org-json.version>20230227</org-json.version>
         <dsl-json.version>1.10.0</dsl-json.version>
         <moshi.version>1.14.0</moshi.version>
@@ -144,6 +146,18 @@
                     <parallel>all</parallel>
                     <perCoreThreadCount>true</perCoreThreadCount>
                     <threadCount>2</threadCount>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>./logs</directory>
+                        </fileset>
+                    </filesets>
                 </configuration>
             </plugin>
 
