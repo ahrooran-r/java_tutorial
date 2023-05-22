@@ -14,6 +14,7 @@ import ch.qos.logback.core.sift.Discriminator;
  */
 public class LoggerNameBasedDiscriminator implements Discriminator<ILoggingEvent> {
 
+    // this should match the name mentioned in sifting appenderc
     private static final String KEY = "fileName";
 
     private boolean started;
@@ -26,9 +27,18 @@ public class LoggerNameBasedDiscriminator implements Discriminator<ILoggingEvent
      */
     @Override
     public String getDiscriminatingValue(ILoggingEvent event) {
-        // the discriminating value is here is the file name
-        String fileName = LogManager.get(event.getLoggerName()).getFile();
-        return null != fileName ? fileName : "app";
+
+        LogManager logger = LogManager.get(event.getLoggerName());
+
+        if (null != logger) {
+            String fileName = logger.getFile();
+            // the discriminating value is here is the file name
+            return null != fileName ? fileName : "other";
+
+        } else {
+            return "other";
+        }
+
     }
 
     @Override
