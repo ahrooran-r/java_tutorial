@@ -1,5 +1,7 @@
 package tutorial.learn.code_snippets.snippet_1_logging;
 
+import static tutorial.learn.code_snippets.snippet_1_logging.log_config.LogManager.*;
+
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
@@ -37,46 +39,46 @@ public class Main {
     public static void main(String[] args) {
 
         // all should print
-        LogManager.APP.trace("APP_TRACE");
-        LogManager.APP.debug("APP_DEBUG");
-        LogManager.APP.info("APP_INFO");
-        LogManager.APP.warn("APP_WARN");
-        LogManager.APP.error("APP_ERROR");
+        APP.trace("APP_TRACE");
+        APP.debug("APP_DEBUG");
+        APP.info("APP_INFO");
+        APP.warn("APP_WARN");
+        APP.error("APP_ERROR");
 
-        LogManager.IN.trace("IN_TRACE");
+        IN.trace("IN_TRACE");
         // following should print
-        LogManager.IN.debug("IN_DEBUG");
-        LogManager.IN.info("IN_INFO");
-        LogManager.IN.warn("IN_WARN");
-        LogManager.IN.error("IN_ERROR");
+        IN.debug("IN_DEBUG");
+        IN.info("IN_INFO");
+        IN.warn("IN_WARN");
+        IN.error("IN_ERROR");
 
-        LogManager.OUT.trace("OUT_TRACE");
-        LogManager.OUT.debug("OUT_DEBUG");
+        OUT.trace("OUT_TRACE");
+        OUT.debug("OUT_DEBUG");
         // following should print
-        LogManager.OUT.info("OUT_INFO");
-        LogManager.OUT.warn("OUT_WARN");
-        LogManager.OUT.error("OUT_ERROR");
+        OUT.info("OUT_INFO");
+        OUT.warn("OUT_WARN");
+        OUT.error("OUT_ERROR");
 
-        LogManager.DB.trace("DB_TRACE");
-        LogManager.DB.debug("DB_DEBUG");
-        LogManager.DB.info("DB_INFO");
+        DB.trace("DB_TRACE");
+        DB.debug("DB_DEBUG");
+        DB.info("DB_INFO");
         // following should print
-        LogManager.DB.warn("DB_WARN");
-        LogManager.DB.error("DB_ERROR");
+        DB.warn("DB_WARN");
+        DB.error("DB_ERROR");
 
-        LogManager.KAFKA.trace("KAFKA_TRACE");
-        LogManager.KAFKA.debug("KAFKA_DEBUG");
-        LogManager.KAFKA.info("KAFKA_INFO");
-        LogManager.KAFKA.warn("KAFKA_WARN");
+        KAFKA.trace("KAFKA_TRACE");
+        KAFKA.debug("KAFKA_DEBUG");
+        KAFKA.info("KAFKA_INFO");
+        KAFKA.warn("KAFKA_WARN");
         // only error should print
-        LogManager.KAFKA.error("KAFKA_ERROR");
+        KAFKA.error("KAFKA_ERROR");
 
         // nothing should print
-        LogManager.SUMMARY.trace("SUMMARY_TRACE");
-        LogManager.SUMMARY.debug("SUMMARY_DEBUG");
-        LogManager.SUMMARY.info("SUMMARY_INFO");
-        LogManager.SUMMARY.warn("SUMMARY_WARN");
-        LogManager.SUMMARY.error("SUMMARY_ERROR");
+        SUMMARY.trace("SUMMARY_TRACE");
+        SUMMARY.debug("SUMMARY_DEBUG");
+        SUMMARY.info("SUMMARY_INFO");
+        SUMMARY.warn("SUMMARY_WARN");
+        SUMMARY.error("SUMMARY_ERROR");
 
         // all should print -> this is not related to our own framework
         log.trace("OTHER_TRACE");
