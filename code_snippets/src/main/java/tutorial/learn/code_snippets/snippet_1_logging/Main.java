@@ -8,7 +8,6 @@ import ch.qos.logback.core.joran.spi.JoranException;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
-import tutorial.learn.code_snippets.snippet_1_logging.log_config.LogManager;
 
 import java.nio.file.Paths;
 
