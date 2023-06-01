@@ -27,6 +27,7 @@
         <module>net</module>
         <module>util</module>
         <module>code_snippets</module>
+        <module>jdbi</module>
     </modules>
 
     <developers>
@@ -83,6 +84,7 @@
         <twitter-hbc-core.version>2.2.0</twitter-hbc-core.version>
         <kafka-clients.version>3.4.0</kafka-clients.version>
         <jmh.version>1.36</jmh.version>
+        <slf4j.version>2.0.7</slf4j.version>
         <logback-classic.version>1.4.7</logback-classic.version>
 
         <gson.version>2.10.1</gson.version>
@@ -93,7 +95,7 @@
         <jsoniter.version>0.9.23</jsoniter.version>
         <javaassist.version>3.29.2-GA</javaassist.version>
 
-
+        <jdbi.version>3.38.2</jdbi.version>
     </properties>
 
     <dependencies>
@@ -106,6 +108,12 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>

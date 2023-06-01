@@ -3,47 +3,14 @@
 <configuration>
     <!--    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>-->
 
+    <property name="LOG_FMT" value="%gray([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %magenta([%thread]) %highlight(%-5level) %cyan(%class) - %msg%n%throwable"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoders are assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-
-        <!-- This has bugs in windows -->
-        <!-- <withJansi>true</withJansi> -->
-
         <encoder>
             <!-- ADD COLOURS TO LOG: https://github.com/Tuxdude/logback-colorizer/blob/master/README.md -->
-            <pattern>
-                %green(%d{ISO8601}) %highlight(%-5level) %magenta([%t]) %cyan(%C{1.}) - %msg%n%throwable
-            </pattern>
+            <pattern>${LOG_FMT}</pattern>
         </encoder>
     </appender>
-
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
-
-    <!--    <property name="LOG_DIR" value="/var/log/application"/>-->
-    <!--    <appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
-    <!--        <file>${LOG_DIR}/tests.log</file>-->
-    <!--        <append>true</append>-->
-    <!--        <encoder>-->
-    <!--            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
-
-    <!--    <property name="LOG_FILE" value="LogFile" />-->
-    <!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-    <!--        <file>${LOG_FILE}.log</file>-->
-    <!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-    <!--            &lt;!&ndash; daily rollover &ndash;&gt;-->
-    <!--            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
-
-    <!--            &lt;!&ndash; keep 30 days' worth of history capped at 3GB total size &ndash;&gt;-->
-    <!--            <maxHistory>30</maxHistory>-->
-    <!--            <totalSizeCap>3GB</totalSizeCap>-->
-    <!--        </rollingPolicy>-->
-    <!--        <encoder>-->
-    <!--            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
 </configuration>
