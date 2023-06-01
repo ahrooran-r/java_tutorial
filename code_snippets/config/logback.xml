@@ -11,6 +11,8 @@
     <import class="ch.qos.logback.classic.sift.SiftingAppender"/>
     <import class="tutorial.learn.code_snippets.snippet_1_logging.log_config.LoggerNameBasedDiscriminator"/>
     <import class="ch.qos.logback.classic.AsyncAppender"/>
+    <import class="tutorial.learn.code_snippets.snippet_1_logging.log_config.ConditionalConsoleAppender"/>
+    <import class="tutorial.learn.code_snippets.snippet_1_logging.log_config.ConsoleFilter"/>
 
     <!-- un-comment for debugging logback-->
     <!--<statusListener class="OnConsoleStatusListener"/>-->
@@ -25,7 +27,7 @@
     <property name="LOG_FMT" value="%gray([%d{yyyy-MM-dd HH:mm:ss.SSS}]) %green(%logger{0}) %magenta([%thread]) %highlight(%-5level) %cyan(%delegateAwareClass) - %msg%n%throwable"/>
     <!-- @formatter:on -->
 
-    <appender name="STDOUT" class="ConsoleAppender">
+    <appender name="STDOUT" class="ConditionalConsoleAppender">
         <encoder class="PatternLayoutEncoder">
             <pattern>${LOG_FMT}</pattern>
         </encoder>

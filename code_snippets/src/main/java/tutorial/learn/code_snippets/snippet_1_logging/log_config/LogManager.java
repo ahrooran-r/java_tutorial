@@ -40,6 +40,8 @@ public enum LogManager {
 
     private boolean enabled;
 
+    private boolean enableConsole;
+
     LogManager(String name) {
 
         try {
@@ -55,6 +57,7 @@ public enum LogManager {
 
             this.file = logConfig.get("file").asText();
             this.enabled = logConfig.get("enabled").asBoolean();
+            this.enableConsole = logConfig.get("console").asBoolean();
             this.level = mapper.treeToValue(logConfig.get("level"), Level.class);
 
             // Useful when searching for loggers because user given names are like "in", "db" etc.

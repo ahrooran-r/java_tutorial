@@ -1,29 +1,39 @@
 app:
-  file: 'app'
-  level: TRACE
-  enabled: true
+    # file name to print logs
+    file: 'app'
+    # log level
+    level: TRACE
+    # enable or disable this logger
+    enabled: true
+    # enable or disable console logger
+    console: true
 
 in:
-  file: 'in'
-  level: DEBUG
-  enabled: true
+    file: 'in'
+    level: DEBUG
+    enabled: true
+    console: false
 
 out:
-  file: 'out'
-  level: INFO
-  enabled: true
+    file: 'out'
+    level: INFO
+    enabled: true
+    console: false
 
 db:
-  file: 'db'
-  level: WARN
-  enabled: true
+    file: 'db'
+    level: WARN
+    enabled: true
+    console: true
 
 kafka:
-  file: 'kafka'
-  level: ERROR
-  enabled: true
+    file: 'kafka'
+    level: ERROR
+    enabled: true
+    console: true
 
 summary:
-  file: 'summary'
-  level: TRACE
-  enabled: false
+    file: 'summary'
+    level: TRACE
+    enabled: false
+    console: true
