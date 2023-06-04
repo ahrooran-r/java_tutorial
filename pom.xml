@@ -44,7 +44,7 @@
     </developers>
 
     <properties>
-        <jdk.version>19</jdk.version>
+        <jdk.version>20</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
@@ -143,7 +143,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <release>${jdk.version}</release>
-                    <enablePreview>true</enablePreview>
+                    <compilerArgs>--enable-preview</compilerArgs>
                 </configuration>
             </plugin>
 
