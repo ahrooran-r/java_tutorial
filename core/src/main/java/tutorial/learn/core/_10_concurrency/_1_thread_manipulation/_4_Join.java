@@ -39,7 +39,7 @@ class WaitRunner2 extends WaitRunner {
     }
 }
 
-public class _4_WaitForThreadToFinish {
+public class _4_Join {
     public static void main(String[] args) {
 
         Thread w1 = new WaitRunner1(100);
