@@ -28,6 +28,7 @@
         <module>util</module>
         <module>code_snippets</module>
         <module>jdbi</module>
+        <module>guice</module>
     </modules>
 
     <developers>
@@ -95,7 +96,12 @@
         <jsoniter.version>0.9.23</jsoniter.version>
         <javaassist.version>3.29.2-GA</javaassist.version>
 
-        <jdbi.version>3.38.2</jdbi.version>
+        <jdbi.version>3.38.3</jdbi.version>
+        <hikaricp.version>5.0.1</hikaricp.version>
+        <postgresql.version>42.6.0</postgresql.version>
+
+        <guice.version>7.0.0</guice.version>
+        <governator.version>1.17.13</governator.version>
     </properties>
 
     <dependencies>
