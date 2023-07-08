@@ -1,6 +1,8 @@
 package tutorial.learn.algorithms;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <a href="https://leetcode.com/problems/two-sum/">https://leetcode.com/problems/two-sum/</a>
@@ -8,14 +10,13 @@ import java.util.Arrays;
 public class _2_TwoSum {
     public static void main(String[] args) {
 
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
+        int[] nums = {2, 11, 7, 15};
+        int target = 26;
 
         _2_TwoSum question = new _2_TwoSum();
 
-        int[] result = question.twoSum(nums, target);
+        int[] result = question.twoSumWithSpace(nums, target);
         System.out.println(Arrays.toString(result));
-
     }
 
     /**
@@ -32,6 +33,7 @@ public class _2_TwoSum {
             if (nums[i] + nums[j] == target) return new int[]{i, j};
 
             else if (nums[i] + nums[j] < target) {
+                // sorted asc
                 if (j < upper) j++;
                 else {
                     i++;
@@ -39,6 +41,7 @@ public class _2_TwoSum {
                 }
 
             } else if (nums[i] + nums[j] > target) {
+                // sorted desc
                 upper = j;
                 i++;
                 j++;
@@ -47,9 +50,28 @@ public class _2_TwoSum {
     }
 
     /**
+     * uses map to store numbers. -> O(n) speed, O(n) space
+     */
+    public int[] twoSumWithSpace(int[] nums, int target) {
+        Map<Integer, Integer> compliments = new HashMap<>(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            int compliment = target - nums[i];
+            if (compliment >= 0) compliments.put(target - nums[i], i);
+
+            Integer get = compliments.get(nums[i]);
+            if (null != get) {
+                int[] result = i < get ? new int[]{i, get} : new int[]{get, i};
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Assuming there is always going to be a result, I'm returning `null`
      */
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSumWithoutSpace(int[] nums, int target) {
 
         int i = 0;
 
