@@ -28,7 +28,7 @@
         <module>util</module>
         <module>code_snippets</module>
         <module>jdbi</module>
-        <module>guice</module>
+        <module>dependency_injection</module>
     </modules>
 
     <developers>
@@ -102,6 +102,7 @@
 
         <guice.version>7.0.0</guice.version>
         <governator.version>1.17.13</governator.version>
+        <avaje-inject.version>9.3-RC3</avaje-inject.version>
     </properties>
 
     <dependencies>

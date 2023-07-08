@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tutorial</groupId>
+        <artifactId>dependency_injection</artifactId>
+        <version>1.0.0-Final</version>
+    </parent>
+
+    <artifactId>avaje_inject</artifactId>
+    <packaging>jar</packaging>
+    <name>avaje_inject</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-inject</artifactId>
+            <version>${avaje-inject.version}</version>
+        </dependency>
+
+        <!-- Annotation processor -->
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-inject-generator</artifactId>
+            <version>${avaje-inject.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
