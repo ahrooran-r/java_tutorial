@@ -10,8 +10,8 @@ import java.util.Map;
 public class _2_TwoSum {
     public static void main(String[] args) {
 
-        int[] nums = {2, 11, 7, 15};
-        int target = 26;
+        int[] nums = {3, 2, 4};
+        int target = 6;
 
         _2_TwoSum question = new _2_TwoSum();
 
@@ -56,11 +56,11 @@ public class _2_TwoSum {
         Map<Integer, Integer> compliments = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
             int compliment = target - nums[i];
-            if (compliment >= 0) compliments.put(target - nums[i], i);
+            if (compliment >= 0) compliments.put(compliment, i);
 
             Integer get = compliments.get(nums[i]);
             if (null != get) {
-                int[] result = i < get ? new int[]{i, get} : new int[]{get, i};
+                int[] result = i <= get ? new int[]{i, get} : new int[]{get, i};
                 return result;
             }
         }
