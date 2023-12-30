@@ -45,7 +45,7 @@
     </developers>
 
     <properties>
-        <jdk.version>20</jdk.version>
+        <jdk.version>21</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
@@ -76,7 +76,7 @@
         <commons-codec.version>1.15</commons-codec.version>
         <guava.version>31.1-jre</guava.version>
 
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <error-prone.version>2.14.0</error-prone.version>
         <byte-buddy.version>1.14.2</byte-buddy.version>
 
@@ -146,6 +146,7 @@
             </plugin>
 
             <!-- mvn clean package -T 2C  - -skipTests -->
+            <!-- mvn clean package -DskipTests -T 4 -pl <any_sub_module> -am <== https://stackoverflow.com/a/3899772 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
