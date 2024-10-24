@@ -27,5 +27,8 @@ public class _2_LambdasMotivation {
 
         // above can be further simplified
         Set<String> set4 = new TreeSet<>((s1, s2) -> s1.length() - s2.length());
+
+        // further simplified
+        Set<String> set5 = new TreeSet<>(Comparator.comparingInt(String::length));
     }
 }

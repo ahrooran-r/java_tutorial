@@ -2,6 +2,8 @@ package tutorial.learn.core._6_io;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class _1_FileReading {
     public static void main(String[] args) throws IOException {
@@ -26,7 +28,7 @@ public class _1_FileReading {
         try {
             String line;
             while ((line = file_buffer.readLine()) != null) {
-                sb.append(line).append("\n");
+                sb.append(line).append(System.lineSeparator());
             }
             System.out.println(sb.toString());
         } catch (IOException e) {
@@ -38,7 +40,7 @@ public class _1_FileReading {
         }
     }
 
-    // Method - 2 (use try with resources and object chaining) -> Most preferable method for reading files
+    // Method - 2 (use try with resources and object chaining)
     public static void printFile_m2(String fileName, StringBuilder sb) {
         try (BufferedReader file_buffer =
                      new BufferedReader(
@@ -46,9 +48,18 @@ public class _1_FileReading {
                                      new FileInputStream(fileName), StandardCharsets.UTF_8))) {
             String line;
             while ((line = file_buffer.readLine()) != null) {
-                sb.append(line).append("\n");
+                sb.append(line).append(System.lineSeparator());
             }
             System.out.println(sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Method - 4 -> Most preferable method for reading files
+    public static void printFile_m4(String fileName, StringBuilder sb) {
+        try (var stream = Files.lines(Path.of(fileName), StandardCharsets.UTF_8);) {
+            stream.forEachOrdered(line -> sb.append(line).append(System.lineSeparator()));
         } catch (IOException e) {
             e.printStackTrace();
         }

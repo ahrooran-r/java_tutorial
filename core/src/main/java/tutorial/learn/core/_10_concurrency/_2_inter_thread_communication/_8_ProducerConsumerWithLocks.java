@@ -1,5 +1,7 @@
 package tutorial.learn.core._10_concurrency._2_inter_thread_communication;
 
+import lombok.SneakyThrows;
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -51,6 +53,7 @@ class Worker {
 
 public class _8_ProducerConsumerWithLocks {
 
+    @SneakyThrows
     public static void main(String[] args) {
 
         Worker p = new Worker();
@@ -72,6 +75,7 @@ public class _8_ProducerConsumerWithLocks {
         });
 
         t1.start();
+        Thread.sleep(100);
         t2.start();
 
         try {

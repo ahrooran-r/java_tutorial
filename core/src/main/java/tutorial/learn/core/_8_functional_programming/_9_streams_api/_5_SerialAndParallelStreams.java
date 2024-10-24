@@ -2,7 +2,7 @@ package tutorial.learn.core._8_functional_programming._9_streams_api;
 
 import java.util.stream.IntStream;
 
-public class _5_serialAndParallelStreams {
+public class _5_SerialAndParallelStreams {
     public static void main(String[] args) {
 
         int size = Integer.MAX_VALUE / 100;
@@ -10,7 +10,7 @@ public class _5_serialAndParallelStreams {
         long t1 = System.currentTimeMillis();
         long output = IntStream
                 .rangeClosed(2, size)
-                .filter(_5_serialAndParallelStreams::isPrime)
+                .filter(_5_SerialAndParallelStreams::isPrime)
                 .count();
         long t2 = System.currentTimeMillis();
 
@@ -20,7 +20,7 @@ public class _5_serialAndParallelStreams {
         output = IntStream
                 .rangeClosed(2, size)
                 .parallel()
-                .filter(_5_serialAndParallelStreams::isPrime)
+                .filter(_5_SerialAndParallelStreams::isPrime)
                 .count();
         t2 = System.currentTimeMillis();
 

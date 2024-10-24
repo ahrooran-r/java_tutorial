@@ -6,10 +6,10 @@ package tutorial.learn.core._10_concurrency._0_summary;
 // it makes the variable to be directly accessible from memory and prevents caching
 
 // synchronized -> guarantees both visibility and mutual exclusion
-// volatile -> can only guarantee only visibility
+// volatile -> can only guarantee visibility
 
 // places to use volatile
-// => when one thread writes and other threads read from the variable
+// => when one thread writes and multiple other threads read from the variable
 //     -> No race condition -> hence volatile can be used
 
 // https://stackoverflow.com/a/54592753/10582056

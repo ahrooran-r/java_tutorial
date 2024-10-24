@@ -2,7 +2,7 @@ package tutorial.learn.core._10_concurrency._2_inter_thread_communication;
 
 import lombok.SneakyThrows;
 
-public class _1_MemoryManagementIssues {
+public class _1_RaceCondition {
 
     public static int sum = 0;
 

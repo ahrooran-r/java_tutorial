@@ -27,6 +27,14 @@ public class _2_TryWithResources {
         // The try-with-resources statement ensures that each resource is closed at the end of the statement.
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             return br.readLine();
+
+            // this will close both the BufferedReader (br) and the underlying FileReader object.
+            // In Java, when you close a wrapper stream/reader (like BufferedReader),
+            // it automatically closes the underlying stream/reader that it wraps.
+
+            // This happens because:
+            // 1. BufferedReader's close() method calls close() on its underlying Reader (FileReader in this case)
+            // 2. The try-with-resources statement automatically calls close() when execution leaves the try block
         }
     }
 

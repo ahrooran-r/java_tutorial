@@ -23,7 +23,7 @@ livelocked threads cannot make further progress. However, threads are not blocke
 They are just busy responding to each other to resume work
 
 eg: 2 people attempting to pass each other in narrow corridor:
--> A moves to left at the same time B moves to right
+-> A moves to (his) left at the same time B moves to (his) right
 -> now again both people cannot pass
 
 How to handle deadlock and livelock?

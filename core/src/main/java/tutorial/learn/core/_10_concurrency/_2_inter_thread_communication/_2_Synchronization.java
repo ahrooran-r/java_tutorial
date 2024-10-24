@@ -56,6 +56,7 @@ public class _2_Synchronization {
             int result = process();
             if (result == 200) reset();
             else {
+                // This will never be printed. If it does, Java has a bug.
                 System.out.printf("Sum is: %d, num. of iterations taken is: %d", sum, iter);
                 return;
             }

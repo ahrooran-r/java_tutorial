@@ -11,5 +11,9 @@ public class _4_ForLoopWithComma {
         for (int i = 1, j = i + 10; i < 5; i++, j = i * 2) {
             System.out.println("i = " + i + " j = " + j);
         }
+
+        // The comma operator in the for loop allows you to:
+        //      1. Initialize multiple variables in the initialization section
+        //      2. Perform multiple updates in the increment section
     }
 }

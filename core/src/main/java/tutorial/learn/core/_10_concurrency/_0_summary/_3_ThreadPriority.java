@@ -33,7 +33,7 @@ public class _3_ThreadPriority {
     public static void main(String[] args) {
 
         // Thread.currentThread() -> Returns a reference to the currently executing thread object.
-        System.out.println(Thread.currentThread().toString());
+        System.out.println(Thread.currentThread());
         // -> Thread[main,5,main]
 
         // `main` -> name of the thread

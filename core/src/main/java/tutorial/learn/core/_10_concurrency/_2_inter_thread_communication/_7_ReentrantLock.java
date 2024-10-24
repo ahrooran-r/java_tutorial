@@ -22,7 +22,7 @@ public class _7_ReentrantLock {
         // BUT what of the inner code throws EXCEPTION,
         // then unlock method may not execute, and it will be a DEADLOCK situation for other thread
 
-        // therefore always use this lock with `try catch block`
+        // therefore always use this lock with `try finally block`
         lock.lock();
         try {
             for (int i = 0; i < 10000; i++) counter++;

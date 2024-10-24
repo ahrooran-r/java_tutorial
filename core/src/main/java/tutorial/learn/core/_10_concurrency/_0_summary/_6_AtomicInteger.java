@@ -16,7 +16,8 @@ class MeetUpEvent {
         if (guestCount == 1)
 
             // incrementAndGet() -> Atomically increments the current value,
-            this.count.incrementAndGet();
+            this.count.incrementAndGet(); // ++i
+            // this.count.getAndIncrement(); // i++;
 
         else if (guestCount > 1)
 

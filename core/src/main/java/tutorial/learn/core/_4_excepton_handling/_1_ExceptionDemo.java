@@ -16,7 +16,7 @@ class MyException extends Exception {
 
 class HTTPConnect {
 
-    public static void send(int destination, String data, String partner) throws FileNotFoundException, IOException {
+    public static void send(int destination, String data, String partner) throws IOException {
         System.out.println("Inside send");
 
         // configuring preconditions for `destination`

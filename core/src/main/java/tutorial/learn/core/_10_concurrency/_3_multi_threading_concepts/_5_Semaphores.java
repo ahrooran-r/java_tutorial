@@ -48,7 +48,7 @@ public class _5_Semaphores {
 
         // so in essence
         // locks, synchronization, mutex -> can be used to block access for a thread
-        // semaphores -> can be used to block access for a resource
+        // semaphores                    -> can be used to block access for a resource
 
         /*
          * e.g.:

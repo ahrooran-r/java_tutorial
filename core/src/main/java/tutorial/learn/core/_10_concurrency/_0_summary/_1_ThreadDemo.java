@@ -3,8 +3,6 @@ package tutorial.learn.core._10_concurrency._0_summary;
 // this method is most preferable
 // as work and worker are different activities, separating them would be good in OOP standpoint
 
-import lombok.SneakyThrows;
-
 import java.util.concurrent.TimeUnit;
 
 // first way of implementing concurrency

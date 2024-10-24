@@ -55,8 +55,8 @@ public class _2_CyclicBarrier {
         final CyclicBarrier cyclicBarrier = new CyclicBarrier(4, () -> System.out.println("All threads finished the task!"));
         Family family = new Family(cyclicBarrier);
 
-        ExecutorService executor = Executors.newFixedThreadPool(4);
-        for (int i = 1; i <= 4; i++) {
+        ExecutorService executor = Executors.newFixedThreadPool(cyclicBarrier.getParties());
+        for (int i = 1; i <= cyclicBarrier.getParties(); i++) {
             executor.execute(() -> family.eat(Thread.currentThread().getId()));
         }
 
