@@ -13,7 +13,6 @@
     <modules>
         <module>core</module>
         <module>tests</module>
-        <module>codecheckup</module>
         <module>config</module>
         <module>immutable</module>
         <module>kafka</module>
@@ -26,7 +25,6 @@
         <module>net</module>
         <module>util</module>
         <module>code_snippets</module>
-        <module>jdbi</module>
         <module>dependency_injection</module>
     </modules>
 
@@ -67,7 +65,6 @@
         <eclipse-collections.version>12.0.0.M1</eclipse-collections.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-io.version>2.12.0</commons-io.version>
-        <vavr.version>1.0.0-alpha-4</vavr.version>
         <agrona.version>1.17.1</agrona.version>
 
         <commons-math3.version>3.6.1</commons-math3.version>
@@ -75,7 +72,7 @@
         <commons-codec.version>1.15</commons-codec.version>
         <guava.version>31.1-jre</guava.version>
 
-        <lombok.version>1.18.30</lombok.version>
+        <lombok.version>1.18.42</lombok.version>
         <error-prone.version>2.14.0</error-prone.version>
         <byte-buddy.version>1.14.2</byte-buddy.version>
 
@@ -95,7 +92,6 @@
         <jsoniter.version>0.9.23</jsoniter.version>
         <javaassist.version>3.29.2-GA</javaassist.version>
 
-        <jdbi.version>3.38.3</jdbi.version>
         <hikaricp.version>5.0.1</hikaricp.version>
         <postgresql.version>42.6.0</postgresql.version>
 

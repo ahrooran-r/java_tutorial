@@ -65,15 +65,6 @@
             <version>${commons-collections4.version}</version>
         </dependency>
 
-        <!-- Vavr -->
-
-        <dependency>
-            <groupId>io.vavr</groupId>
-            <artifactId>vavr</artifactId>
-            <!-- used in spring: 0.10.3-->
-            <version>${vavr.version}</version>
-        </dependency>
-
         <!-- Agrona -->
 
         <dependency>
