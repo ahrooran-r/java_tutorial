@@ -1,7 +1,7 @@
 package tutorial.learn.core._1_basic;
 
 public class _6_Constants {
-    public static void main(String[] args) {
+    void main() {
 
         // declare constant variables -> these variables cannot be changed
         final float pi = 3.14F;

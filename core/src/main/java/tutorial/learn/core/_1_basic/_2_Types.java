@@ -1,30 +1,41 @@
-package tutorial.learn.core._1_basic;
+void main() {
 
-import java.util.Date;
+    // -------- PRIMITIVE TYPES --------
 
-public class _2_Types {
-    public static void main(String[] args) {
+    // Whole-number types
 
-        // PRIMITIVE TYPES
-        // storing whole numbers
-        byte age = 20; // byte -> takes 1 byte: range[-128, 127]
-        short salary = 32000; // short -> takes 2 bytes: range[-32K, 32K]
-        int milliseconds = 1_000_000_000; // int -> takes 4 bytes: range[-2B, 2B]
-        long nanoseconds = 3_123_456_789L; // long -> takes 8 bytes; add an L in last
+    // 1 byte, range: -128 to 127
+    byte age = 20;
 
-        // storing decimal point numbers
-        float bankBalance = 2100.992F; // float -> takes 4 bytes; add an F in last
-        double avgSalary = 1_320_120.276; // double -> takes 8 bytes
+    // 2 bytes, range: -32k to +32k
+    short salary = 32000;
 
-        // storing characters
-        char A = 'A'; // char -> takes 2 bytes
+    // 4 bytes, underscore improves readability
+    int milliseconds = 1_000_000_000;
 
-        // true/false
-        boolean isCorrect = true; // boolean -> takes 1 byte: (true, false)
+    // 8 bytes, the 'L' marks it as a long literal
+    long nanoseconds = 3_123_456_789L;
 
-        // REFERENCE TYPES
-        Date now = new Date(); // 'new' -> use to allocate memory
-        long nowTime = now.getTime();
-        System.out.println(now);
-    }
+    // Decimal-number types
+
+    // 4 bytes, requires 'F' suffix to mark float literal
+    float bankBalance = 2100.992F;
+
+    // 8 bytes, default type for decimals in Java
+    double avgSalary = 1_320_120.276;
+
+    // Character type -> 2 bytes, stores a single UTF-16 character
+    char A = 'A';
+
+    // Boolean type -> Can be only true or false
+    boolean isCorrect = true;
+
+    // -------- REFERENCE TYPES --------
+
+    // Creates a object (stored on the heap)
+    LocalDateTime now = LocalDateTime.now();
+    // Extracts milliseconds since Unix epoch
+    long nowTime = now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    // Prints readable date/time representation
+    System.out.println(now);
 }
